@@ -1,0 +1,1710 @@
+//////////////////////////////////////////
+//
+// NOTE: This is *not* a valid shader file
+//
+///////////////////////////////////////////
+Shader "Shader Graphs/ToonShading_MKShader" {
+Properties {
+_Character_Texture ("Character_Texture", 2D) = "white" { }
+_Specular_Mask ("Specular_Mask", 2D) = "white" { }
+_Specular ("Specular", Float) = 0.2
+_Color ("Color", Color) = (1,1,1,1)
+_Main_Texture ("Main_Texture", 2D) = "white" { }
+_Main_Texture_Tiling ("Main_Texture_Tiling", Vector) = (1,1,0,0)
+_Main_Texture_Speed ("Main_Texture_Speed", Vector) = (1,0,0,0)
+_Aura_Color ("Aura_Color", Color) = (1,1,1,0)
+_Aura_Power ("Aura_Power", Range(0, 1)) = 1
+_Aura_Noise ("Aura_Noise", 2D) = "white" { }
+_Aura_Texture ("Aura_Texture", 2D) = "white" { }
+Vector2_b4bb9edeb256422d9085c41869d6cd3f ("Aura_Tiling", Vector) = (1,1,0,0)
+Aura_Speed ("Aura_Speed", Vector) = (0,0,0,0)
+_Saturation ("Saturation", Range(0.35, 1)) = 1
+_Damage_Power ("Damage_Power", Range(0, 1)) = 0
+Color_e15b25c9b8e6499bae85248307e6dcf9 ("Dissolve_Color", Color) = (2,0.3719116,0,0)
+Dissolve_Death ("Dissolve_Death", Range(-2, 1)) = -2
+Vector1_674aeba9f5054b0da15cf6e914ee2479 ("Dissolve_Scale", Float) = 5
+unity_Lightmaps ("unity_Lightmaps", 2DArray) = "" { }
+unity_LightmapsInd ("unity_LightmapsInd", 2DArray) = "" { }
+unity_ShadowMasks ("unity_ShadowMasks", 2DArray) = "" { }
+}
+SubShader {
+ Tags { "QUEUE" = "AlphaTest" "RenderPipeline" = "UniversalPipeline" "RenderType" = "Opaque" "UniversalMaterialType" = "Lit" }
+ Pass {
+  Name "Universal Forward"
+  Tags { "LIGHTMODE" = "UniversalForward" "QUEUE" = "AlphaTest" "RenderPipeline" = "UniversalPipeline" "RenderType" = "Opaque" "UniversalMaterialType" = "Lit" }
+  GpuProgramID 59371
+Program "vp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+}
+Program "fp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+}
+}
+ Pass {
+  Name "ShadowCaster"
+  Tags { "LIGHTMODE" = "SHADOWCASTER" "QUEUE" = "AlphaTest" "RenderPipeline" = "UniversalPipeline" "RenderType" = "Opaque" "UniversalMaterialType" = "Lit" }
+  ColorMask 0 0
+  GpuProgramID 138093
+Program "vp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+Program "fp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+}
+ Pass {
+  Name "DepthOnly"
+  Tags { "LIGHTMODE" = "DepthOnly" "QUEUE" = "AlphaTest" "RenderPipeline" = "UniversalPipeline" "RenderType" = "Opaque" "UniversalMaterialType" = "Lit" }
+  ColorMask 0 0
+  GpuProgramID 242548
+Program "vp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+Program "fp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+}
+ Pass {
+  Name "DepthNormals"
+  Tags { "LIGHTMODE" = "DepthNormals" "QUEUE" = "AlphaTest" "RenderPipeline" = "UniversalPipeline" "RenderType" = "Opaque" "UniversalMaterialType" = "Lit" }
+  GpuProgramID 324774
+Program "vp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+Program "fp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+}
+ Pass {
+  Tags { "LIGHTMODE" = "Universal2D" "QUEUE" = "AlphaTest" "RenderPipeline" = "UniversalPipeline" "RenderType" = "Opaque" "UniversalMaterialType" = "Lit" }
+  GpuProgramID 416838
+Program "vp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+Program "fp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+}
+}
+SubShader {
+ Tags { "QUEUE" = "AlphaTest" "RenderPipeline" = "UniversalPipeline" "RenderType" = "Opaque" "UniversalMaterialType" = "Lit" }
+ Pass {
+  Name "Universal Forward"
+  Tags { "LIGHTMODE" = "UniversalForward" "QUEUE" = "AlphaTest" "RenderPipeline" = "UniversalPipeline" "RenderType" = "Opaque" "UniversalMaterialType" = "Lit" }
+  GpuProgramID 465386
+Program "vp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+}
+Program "fp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_SCREEN_SPACE_OCCLUSION" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_MAIN_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS_CASCADE" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_ADDITIONAL_LIGHT_SHADOWS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" "_SHADOWS_SOFT" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_EXP2" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "FOG_LINEAR" "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+SubProgram "d3d11 " {
+Keywords { "_ADDITIONAL_LIGHTS" "_MAIN_LIGHT_SHADOWS" }
+"// shader disassembly not supported on DXBC"
+}
+}
+}
+ Pass {
+  Name "ShadowCaster"
+  Tags { "LIGHTMODE" = "SHADOWCASTER" "QUEUE" = "AlphaTest" "RenderPipeline" = "UniversalPipeline" "RenderType" = "Opaque" "UniversalMaterialType" = "Lit" }
+  ColorMask 0 0
+  GpuProgramID 538864
+Program "vp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+Program "fp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+}
+ Pass {
+  Name "DepthOnly"
+  Tags { "LIGHTMODE" = "DepthOnly" "QUEUE" = "AlphaTest" "RenderPipeline" = "UniversalPipeline" "RenderType" = "Opaque" "UniversalMaterialType" = "Lit" }
+  ColorMask 0 0
+  GpuProgramID 626866
+Program "vp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+Program "fp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+}
+ Pass {
+  Name "DepthNormals"
+  Tags { "LIGHTMODE" = "DepthNormals" "QUEUE" = "AlphaTest" "RenderPipeline" = "UniversalPipeline" "RenderType" = "Opaque" "UniversalMaterialType" = "Lit" }
+  GpuProgramID 670151
+Program "vp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+Program "fp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+}
+ Pass {
+  Tags { "LIGHTMODE" = "Universal2D" "QUEUE" = "AlphaTest" "RenderPipeline" = "UniversalPipeline" "RenderType" = "Opaque" "UniversalMaterialType" = "Lit" }
+  GpuProgramID 789948
+Program "vp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+Program "fp" {
+SubProgram "d3d11 " {
+"// shader disassembly not supported on DXBC"
+}
+}
+}
+}
+Fallback "Hidden/Shader Graph/FallbackError"
+CustomEditor "ShaderGraph.PBRMasterGUI"
+}

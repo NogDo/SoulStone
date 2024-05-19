@@ -1,0 +1,156 @@
+fileFormatVersion: 2
+guid: 547c661c5957d25498098c3ea66c39f4
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      74: -6662190623021979265
+    second: F_Idle02
+  - first:
+      74: 8899644901765333407
+    second: F_Run
+  - first:
+      74: 7943198440883759647
+    second: F_Fall_Execute
+  - first:
+      74: -1138135637121243959
+    second: F_Fall_Loop
+  - first:
+      74: -5967723073821815402
+    second: F_Jump_Execute
+  - first:
+      74: -1004912253761338504
+    second: F_SleepToStand
+  - first:
+      74: -5143434173962230307
+    second: F_Sleep to Seat
+  - first:
+      74: -1276212042275393735
+    second: F_Death1
+  - first:
+      74: -2229184543892837624
+    second: F_Death2
+  - first:
+      74: -8279505767332887950
+    second: F_Attack_Bite_Left_Prepare
+  - first:
+      74: 719756889544815506
+    second: F_Attack_Bite_Left_Prepare_Loop
+  - first:
+      74: -67452071337900930
+    second: F_Attack_Bite_Left_Execute
+  - first:
+      74: -5461651463001373847
+    second: F_Attack_Claws_Execute
+  - first:
+      74: 9164896087768876754
+    second: F_Attack_Claws_Prepare
+  - first:
+      74: 743704385746061388
+    second: F_Attack_Claws_Prepare_Loop
+  - first:
+      74: 4111336385625978243
+    second: F_Attack_Bite_Left
+  - first:
+      74: -8245019258575431120
+    second: F_Attack_Claws
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 0
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
