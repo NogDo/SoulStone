@@ -1,11 +1,20 @@
 fileFormatVersion: 2
-guid: 2ff766bf37ae47147a98c94e22be115c
+guid: f68ed79f2d891dd4a977c76cda9d9be3
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
-      74: 8482308697176030153
-    second: CapeIdle
+      74: 2207649589725584745
+    second: Barbarian|Barbarian|walk_2|Base Layer
+  - first:
+      74: -7140465253566036710
+    second: Barbarian|Barbarian|walk_3|Base Layer
+  - first:
+      74: 8916375153529929718
+    second: Barbarian|Barbarian|walk_4|Base Layer
+  - first:
+      74: -4061765540985868548
+    second: Barbarian|Barbarian|walk|Base Layer
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -59,7 +68,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    optimizeBones: 1
+    optimizeBones: 0
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -100,7 +109,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
