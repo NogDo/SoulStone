@@ -24,6 +24,9 @@ public class CCameraFollow : MonoBehaviour
         CameraMove();
     }
 
+    /// <summary>
+    /// 카메라 이동 (캐릭터를 따라간다.)
+    /// </summary>
     void CameraMove()
     {
         Vector3 v3NowCameraPosition = v3StartCameraPosition + (tfCharacter.position - v3StartCharacterPosition);
