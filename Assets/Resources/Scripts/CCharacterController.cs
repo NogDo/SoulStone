@@ -14,8 +14,6 @@ public class CCharacterController : MonoBehaviour
     float fSpeedMove;
     [SerializeField]
     float fGravityPower;
-
-    Vector3 v3Move;
     #endregion
 
     void Awake()

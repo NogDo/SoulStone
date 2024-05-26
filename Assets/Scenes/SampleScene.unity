@@ -7766,6 +7766,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 65e9084e6485fb349a273aa9ff25dcf1, type: 2}
     - target: {fileID: -2011278001737308384, guid: e4ed9dcf9cb6fe54b838ee0980a5595b, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -2011278001737308384, guid: e4ed9dcf9cb6fe54b838ee0980a5595b, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
@@ -8185,6 +8189,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4520198013199687, guid: e4ed9dcf9cb6fe54b838ee0980a5595b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520198013199687, guid: e4ed9dcf9cb6fe54b838ee0980a5595b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520198013199687, guid: e4ed9dcf9cb6fe54b838ee0980a5595b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520198013199687, guid: e4ed9dcf9cb6fe54b838ee0980a5595b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520198013199687, guid: e4ed9dcf9cb6fe54b838ee0980a5595b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 4594227458415513, guid: e4ed9dcf9cb6fe54b838ee0980a5595b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -8227,7 +8251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4594227458415513, guid: e4ed9dcf9cb6fe54b838ee0980a5595b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 95997261884339832, guid: e4ed9dcf9cb6fe54b838ee0980a5595b, type: 3}
       propertyPath: m_Avatar
@@ -28650,6 +28674,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fSpeedMove: 5
   fGravityPower: 9.8
+--- !u!114 &1489920831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489920824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65fcba09e0ea25a428043c5a01cf0cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationClip: {fileID: 7400000, guid: f42f0c4e1f18ccc4a8eed57ba7b1c04c, type: 2}
 --- !u!1 &1490840193 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5534287951147500730, guid: 712833d51cf02e946907ec5699e3b6b0, type: 3}
