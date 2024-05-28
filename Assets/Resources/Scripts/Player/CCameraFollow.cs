@@ -5,16 +5,16 @@ using UnityEngine;
 public class CCameraFollow : MonoBehaviour
 {
     #region private 변수
+    Transform tfCharacter;
+
     Vector3 v3StartCameraPosition;
     Vector3 v3StartCharacterPosition;
     #endregion
 
-    #region public 변수
-    public Transform tfCharacter;
-    #endregion
-
-    void Awake()
+    void Start()
     {
+        tfCharacter = FindObjectOfType<CCharacter>().GetComponent<Transform>();
+
         v3StartCameraPosition = transform.position;
         v3StartCharacterPosition = tfCharacter.position;
     }

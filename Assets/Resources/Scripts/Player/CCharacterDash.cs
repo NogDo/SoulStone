@@ -6,12 +6,13 @@ public class CCharacterDash : MonoBehaviour
 {
     #region private 변수
     CCharacter character;
-
+    CDashCanvasManager dashCanvas;
     #endregion
 
-    void Awake()
+    void Start()
     {
-        character = CCharacter.Instance;
+        character = FindObjectOfType<CCharacter>();
+        dashCanvas = FindObjectOfType<CDashCanvasManager>();
     }
 
     void Update()
@@ -60,7 +61,8 @@ public class CCharacterDash : MonoBehaviour
         {
             StartCoroutine("DashCoolDown");
         }
-        character.NowDashCount--;
+        character.DecreaseNowDashCount();
+        dashCanvas.PlayImageCoolTime();
 
         // 대시
         while (Time.time < fStartTime + 0.2f)
@@ -79,6 +81,6 @@ public class CCharacterDash : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
 
-        character.NowDashCount = character.MaxDashCount;
+        character.FillNowDashCount();
     }
 }

@@ -14,17 +14,12 @@ public class CCharacterAttack : MonoBehaviour
     IEnumerator skill1;
     #endregion
 
-    void Awake()
+    void Start()
     {
-        character = CCharacter.Instance;
+        character = FindObjectOfType<CCharacter>();
 
         skill1 = Skill1();
         StartCoroutine(skill1);
-    }
-
-    void Update()
-    {
-        
     }
 
     IEnumerator Skill1()

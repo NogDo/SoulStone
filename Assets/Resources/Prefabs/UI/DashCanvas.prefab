@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3917987040164284431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,4 +155,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oDashImage: {fileID: 5508135542667019318, guid: 9e287ee4acd0f4144acbbec94c5c9ab7, type: 3}
+  character: {fileID: 0}
   oDashImageList: []

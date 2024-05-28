@@ -2,55 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CCharacter : MonoBehaviour
+public abstract class CCharacter : MonoBehaviour
 {
-    #region public 변수
-    public static CCharacter character;
-    #endregion
+    #region protected 변수
+    protected CharacterController characterController;
+    protected Animator animator;
 
-    #region private 변수
-    CharacterController characterController;
-    Animator animator;
+    protected Vector3 v3MoveDirection;
+    protected Vector3 v3RotateDirection;
+    protected Vector3 v3MousePointerToWorldPosition;
 
-    Vector3 v3MoveDirection;
-    Vector3 v3RotateDirection;
-    Vector3 v3MousePointerToWorldPosition;
-
-    [SerializeField]
-    float fMoveSpeed;
-    [SerializeField]
-    float fGravityPower;
-    [SerializeField]
-    float fDashPower;
-
-    int nMaxDashCount;
-    int nNowDashCount;
+    protected float fMoveSpeed;
+    protected float fGravityPower;
+    protected float fDashPower;
+    protected int nMaxDashCount;
+    protected int nNowDashCount;
     #endregion
 
     void Awake()
     {
-        CharacterController = GetComponent<CharacterController>();
-        Animator = GetComponent<Animator>();
-
-        nMaxDashCount = 2;
-        nNowDashCount = nMaxDashCount;
+        characterController = this.GetComponent<CharacterController>();
+        animator = this.GetComponent<Animator>();
     }
 
-    /// <summary>
-    /// 캐릭터 인스턴스
-    /// </summary>
-    public static CCharacter Instance
-    {
-        get
-        {
-            if (character == null)
-            {
-                character = new CCharacter();
-            }
-
-            return character;
-        }
-    }
+    public abstract void Init();
 
     /// <summary>
     /// 플레이어 CharacterController
@@ -191,7 +166,7 @@ public class CCharacter : MonoBehaviour
             return nMaxDashCount;
         }
 
-        set
+        private set
         {
             nMaxDashCount = value;
         }
@@ -207,9 +182,24 @@ public class CCharacter : MonoBehaviour
             return nNowDashCount;
         }
 
-        set
+        private set
         {
             nNowDashCount = value;
         }
+    }
+
+    public void DecreaseNowDashCount()
+    {
+        nNowDashCount--;
+    }
+
+    public void FillNowDashCount()
+    {
+        nNowDashCount = nMaxDashCount;
+    }
+
+    public void IncreaseMaxDashCount()
+    {
+        nMaxDashCount++;
     }
 }

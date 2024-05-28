@@ -10,10 +10,10 @@ public class CCharacterController : MonoBehaviour
     LayerMask lmGround;
     #endregion
 
-    void Awake()
+    void Start()
     {
-        character = CCharacter.Instance;
-        
+        character = FindObjectOfType<CCharacter>();
+
         lmGround = LayerMask.GetMask("Ground");
     }
 
