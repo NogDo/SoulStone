@@ -96,9 +96,14 @@ public class CCharacterController : MonoBehaviour
             character.RotateDirection = character.MousePointerToWorldPosition - transform.position;
 
             // 캐릭터와 마우스 포인터가 너무 가깝다면 회전을 시키지 않음
-            if (character.RotateDirection.sqrMagnitude <= 1.5f)
+            if (character.RotateDirection.sqrMagnitude <= 0.5f)
             {
                 return;
+            }
+
+            else if (character.RotateDirection.sqrMagnitude <= 1.0f)
+            {
+                character.RotateDirection *= 100.0f;
             }
 
             Quaternion qtRotation = Quaternion.LookRotation(character.RotateDirection);
