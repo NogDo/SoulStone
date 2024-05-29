@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class CCharacterBarbarian : CCharacter
 {
+    #region private º¯¼ö
+    [SerializeField]
+    STSkillData defaultSkill;
+    #endregion
+
     public CCharacterBarbarian()
     {
         Init();
@@ -17,5 +22,12 @@ public class CCharacterBarbarian : CCharacter
 
         nMaxDashCount = 2;
         nNowDashCount = nMaxDashCount;
+
+        characterSKills = new STSkillData[6];
+    }
+
+    void Start()
+    {
+        AddSkill(defaultSkill, 0);
     }
 }

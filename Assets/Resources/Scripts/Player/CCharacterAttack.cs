@@ -26,9 +26,18 @@ public class CCharacterAttack : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(character.SKill[0].fCoolTime);
 
             character.Animator.SetTrigger("UseSkill1");
         }
+    }
+
+    IEnumerator Skill1Particle()
+    {
+        character.SKill[0].oParticle.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        character.SKill[0].oParticle.SetActive(false);
     }
 }
