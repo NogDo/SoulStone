@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 스킬 데이터
+/// </summary>
 [System.Serializable]
 public struct STSkillData
 {

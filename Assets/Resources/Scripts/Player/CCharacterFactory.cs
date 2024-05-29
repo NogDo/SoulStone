@@ -18,6 +18,10 @@ public class CCharacterFactory : MonoBehaviour
         CreateCharacter(ECharacter.BARBARIAN);
     }
 
+    /// <summary>
+    /// 캐릭터 생성
+    /// </summary>
+    /// <param name="character">캐릭터 직업</param>
     public void CreateCharacter(ECharacter character)
     {
         GameObject oCharacter = null;

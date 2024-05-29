@@ -14,6 +14,9 @@ public class CCharacterBarbarian : CCharacter
         Init();
     }
 
+    /// <summary>
+    /// 바바리안 초기화
+    /// </summary>
     public override void Init()
     {
         fMoveSpeed = 5.0f;

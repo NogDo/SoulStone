@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 45e5203b62c6c474490b948407f31683, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 27ba876fe3e70054aa6ba8077996aca0, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.22413138, g: 0.2998308, b: 0.40375012, a: 1}
+  m_IndirectSpecularColor: {r: 0.18152872, g: 0.20589676, b: 0.18487069, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 528660498}
   - component: {fileID: 528660497}
   - component: {fileID: 528660499}
+  - component: {fileID: 528660500}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -392,6 +393,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4091a21c36dea3047b7ec10467b81d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &528660500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528660495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,8 +694,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkillList:
-  - animationClip: {fileID: 7400000, guid: a12f6a3ae350fa94c9186eaef32b10f1, type: 2}
-    oParticle: {fileID: 6445826192643391251, guid: 19ad1952919114446ab32647516f23c6, type: 3}
+  - animationClip: {fileID: 7400000, guid: f42f0c4e1f18ccc4a8eed57ba7b1c04c, type: 2}
+    oParticle: {fileID: 7881393979009851569, guid: 54821cddb46f1c345a2d8c95e2750d2a, type: 3}
     fAttack: 10
     fCoolTime: 2
 --- !u!1 &2091800507

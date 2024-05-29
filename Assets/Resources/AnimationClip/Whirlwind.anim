@@ -9788,11 +9788,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 1
-  m_Events:
-  - time: 0
-    functionName: SKill1Particle
-    data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 2b500a59c04ccb34ba4bda7b29011907, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

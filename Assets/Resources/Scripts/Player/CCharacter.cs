@@ -55,6 +55,9 @@ public abstract class CCharacter : MonoBehaviour
         animatorOverrideController.GetOverrides(animationClipOverride);
     }
 
+    /// <summary>
+    /// 각각의 캐릭터 능력치 초기화
+    /// </summary>
     public abstract void Init();
 
     /// <summary>
@@ -216,26 +219,45 @@ public abstract class CCharacter : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 대시 카운트 1 감소
+    /// </summary>
     public void DecreaseNowDashCount()
     {
         nNowDashCount--;
     }
 
+    /// <summary>
+    /// 현재 대시 카운트를 모두 채운다
+    /// </summary>
     public void FillNowDashCount()
     {
         nNowDashCount = nMaxDashCount;
     }
 
+    /// <summary>
+    /// 최대 대시 카운트 1 증가
+    /// </summary>
     public void IncreaseMaxDashCount()
     {
         nMaxDashCount++;
     }
 
+    /// <summary>
+    /// 플레이어 스킬 추가
+    /// </summary>
+    /// <param name="skillData">스킬 정보가 담긴 구조체</param>
+    /// <param name="index">스킬 번호</param>
     public void AddSkill(STSkillData skillData, int index)
     {
+        // 애니메이션 클립 교체
         animationClipOverride[characterSKills[index].animationClip.name] = skillData.animationClip;
         animatorOverrideController.ApplyOverrides(animationClipOverride);
 
         characterSKills[index] = skillData;
+
+        // 파티클 생성 후 캐릭터 스킬에 넣는다.
+        characterSKills[index].oParticle = Instantiate(skillData.oParticle, transform.GetChild(6).transform);
+        characterSKills[index].oParticle.SetActive(false);
     }
 }
