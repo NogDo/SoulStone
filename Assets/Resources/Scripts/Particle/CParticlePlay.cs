@@ -27,6 +27,6 @@ public class CParticlePlay : MonoBehaviour
     {
         yield return new WaitForSeconds(fRunTime);
 
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

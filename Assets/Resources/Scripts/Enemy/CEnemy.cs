@@ -13,6 +13,7 @@ public abstract class CEnemy : MonoBehaviour
     protected float fGravityPower;
     protected float fHp;
     protected float fAttack;
+    protected int nEnemyNumber;
     #endregion
 
     void Awake()

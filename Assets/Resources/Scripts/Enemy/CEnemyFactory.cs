@@ -18,7 +18,7 @@ public class CEnemyFactory : MonoBehaviour
     /// 利 积己
     /// </summary>
     /// <param name="enemy">利 辆幅</param>
-    public GameObject CreateEnemy(EEnemy enemy)
+    public void CreateEnemy(EEnemy enemy)
     {
         GameObject oEnemy = null;
 
@@ -26,11 +26,13 @@ public class CEnemyFactory : MonoBehaviour
         {
             case EEnemy.GOBLIN:
                 oEnemy = Instantiate(oEnemyPrefabList[0], transform);
+                oEnemy.GetComponent<CEnemy>().Init();
                 oEnemy.SetActive(false);
                 break;
 
             case EEnemy.GOBLIN_SHAMAN:
                 oEnemy = Instantiate(oEnemyPrefabList[1], transform);
+                oEnemy.GetComponent<CEnemy>().Init();
                 oEnemy.SetActive(false);
                 break;
 
@@ -38,7 +40,5 @@ public class CEnemyFactory : MonoBehaviour
                 print("Enemy 积己 坷幅");
                 break;
         }
-
-        return oEnemy;
     }
 }

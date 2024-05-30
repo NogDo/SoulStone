@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class CEnemyGoblinShaman : CEnemy
 {
-    public CEnemyGoblinShaman()
-    {
-        Init();
-    }
-
     /// <summary>
     /// 고블린 주술사 능력치 초기화
     /// </summary>
@@ -18,6 +13,7 @@ public class CEnemyGoblinShaman : CEnemy
         fGravityPower = 9.8f;
         fHp = 1000.0f;
         fAttack = 20.0f;
+        nEnemyNumber = 1;
     }
 
     void OnEnable()

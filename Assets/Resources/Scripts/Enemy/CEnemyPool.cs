@@ -26,12 +26,12 @@ public class CEnemyPool : MonoBehaviour
 
         for (int i = 0; i < nBasicEnemyCount; i++)
         {
-            oBasicEnemyPool.Enqueue(enemyFactory.CreateEnemy(EEnemy.GOBLIN));
+            enemyFactory.CreateEnemy(EEnemy.GOBLIN);
         }
 
         for (int i = 0; i < nEliteEnemyCount; i++)
         {
-            oEliteEnemyPool.Enqueue(enemyFactory.CreateEnemy(EEnemy.GOBLIN_SHAMAN));
+            enemyFactory.CreateEnemy(EEnemy.GOBLIN_SHAMAN);
         }
     }
 

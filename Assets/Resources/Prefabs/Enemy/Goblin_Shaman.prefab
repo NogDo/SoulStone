@@ -1611,6 +1611,7 @@ GameObject:
   - component: {fileID: 7114814986546555348}
   - component: {fileID: 7293122155481845309}
   - component: {fileID: 4896189745000174340}
+  - component: {fileID: 3293551397501218838}
   m_Layer: 0
   m_Name: Goblin_Shaman
   m_TagString: Untagged
@@ -1666,6 +1667,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f493b013ac69c4d83e4658ec2814e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &3293551397501218838
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635631222836425582}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.007
+  m_Height: 0.04
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.02, z: 0}
 --- !u!1 &7764643553492386368
 GameObject:
   m_ObjectHideFlags: 0
