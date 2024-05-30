@@ -15,16 +15,17 @@ public class CCharacterBarbarian : CCharacter
     }
 
     /// <summary>
-    /// 바바리안 초기화
+    /// 바바리안 능력치 초기화
     /// </summary>
     public override void Init()
     {
         fMoveSpeed = 5.0f;
         fGravityPower = 9.8f;
-        fDashPower = 3.0f;
+        fDashPower = 15.0f;
 
         nMaxDashCount = 2;
         nNowDashCount = nMaxDashCount;
+        nLevel = 1;
 
         characterSKills = new STSkillData[6];
     }

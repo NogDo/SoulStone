@@ -53,7 +53,12 @@ public class CCharacterDash : MonoBehaviour
         // 캐릭터가 이동중이 아니라면 마우스 방향으로 대시
         if (v3DashDirection == Vector3.zero)
         {
-            v3DashDirection = character.RotateDirection.normalized * character.MoveSpeed;
+            v3DashDirection = character.RotateDirection.normalized;
+        }
+
+        else
+        {
+            v3DashDirection = v3DashDirection.normalized;
         }
 
         // 캐릭터가 대시를 처음 썼다면 대시 쿨타임 코루틴 실행

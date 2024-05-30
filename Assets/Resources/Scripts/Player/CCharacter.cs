@@ -41,6 +41,7 @@ public abstract class CCharacter : MonoBehaviour
     protected float fDashPower;
     protected int nMaxDashCount;
     protected int nNowDashCount;
+    protected int nLevel;
     #endregion
 
     void Awake()
