@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18159589, g: 0.2059654, b: 0.1852814, a: 1}
+  m_IndirectSpecularColor: {r: 0.18152872, g: 0.20589676, b: 0.18487069, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -800,7 +800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkillList:
-  - animationClip: {fileID: 7400000, guid: a12f6a3ae350fa94c9186eaef32b10f1, type: 2}
+  - animationClip: {fileID: 7400000, guid: f42f0c4e1f18ccc4a8eed57ba7b1c04c, type: 2}
     oParticle: {fileID: 7881393979009851569, guid: 54821cddb46f1c345a2d8c95e2750d2a, type: 3}
     fAttack: 10
     fCoolTime: 2
