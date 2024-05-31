@@ -20,25 +20,8 @@ public class CEnemyFactory : MonoBehaviour
     /// <param name="enemy">적 종류</param>
     public void CreateEnemy(EEnemy enemy)
     {
-        GameObject oEnemy = null;
-
-        switch (enemy)
-        {
-            case EEnemy.GOBLIN:
-                oEnemy = Instantiate(oEnemyPrefabList[0], transform);
-                oEnemy.GetComponent<CEnemy>().Init();
-                oEnemy.SetActive(false);
-                break;
-
-            case EEnemy.GOBLIN_SHAMAN:
-                oEnemy = Instantiate(oEnemyPrefabList[1], transform);
-                oEnemy.GetComponent<CEnemy>().Init();
-                oEnemy.SetActive(false);
-                break;
-
-            default:
-                print("Enemy 생성 오류");
-                break;
-        }
+        GameObject oEnemy = Instantiate(oEnemyPrefabList[(int)enemy], transform);
+        oEnemy.GetComponent<CEnemy>().Init();
+        oEnemy.SetActive(false);
     }
 }

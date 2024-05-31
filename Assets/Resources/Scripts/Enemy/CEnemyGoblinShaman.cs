@@ -18,7 +18,7 @@ public class CEnemyGoblinShaman : CEnemy
 
     void OnEnable()
     {
-
+        CPathRequestManager.RequestPath(transform.position, tfTarget.position, OnPathFound);
     }
 
     void OnDisable()

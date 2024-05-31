@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18152872, g: 0.20589676, b: 0.18487069, a: 1}
+  m_IndirectSpecularColor: {r: 0.18159589, g: 0.2059654, b: 0.1852814, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -349,6 +349,8 @@ GameObject:
   m_Component:
   - component: {fileID: 247273300}
   - component: {fileID: 247273301}
+  - component: {fileID: 247273302}
+  - component: {fileID: 247273303}
   m_Layer: 0
   m_Name: DrawGrid
   m_TagString: Untagged
@@ -386,12 +388,39 @@ MonoBehaviour:
   lmStaticMesh:
     serializedVersion: 2
     m_Bits: 128
-  v2GridSize: {x: 125, y: 125}
+  v2GridSize: {x: 140, y: 140}
+  eEnemy: 0
   fNodeRadius: 0.5
   fEnemyRadius:
   - 0.3
   - 0.7
   nShowGridNumber: 0
+  nMaxSize: 0
+--- !u!114 &247273302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247273299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e45160bab2923429b5a7026fd792bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 247273301}
+--- !u!114 &247273303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247273299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa045f98b9e7ea48bb17e0ee1aca0b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &528660495
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +453,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 56, y: 0, z: 0}
 --- !u!81 &528660497
 AudioListener:
@@ -724,7 +753,7 @@ Transform:
   m_Children:
   - {fileID: 1187665637}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1900741636
 GameObject:
@@ -771,7 +800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkillList:
-  - animationClip: {fileID: 7400000, guid: f42f0c4e1f18ccc4a8eed57ba7b1c04c, type: 2}
+  - animationClip: {fileID: 7400000, guid: a12f6a3ae350fa94c9186eaef32b10f1, type: 2}
     oParticle: {fileID: 7881393979009851569, guid: 54821cddb46f1c345a2d8c95e2750d2a, type: 3}
     fAttack: 10
     fCoolTime: 2
@@ -2370,7 +2399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1715839109460541409, guid: 0fcbd0833c8387748962524f67d0ffa1, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1715839109460541409, guid: 0fcbd0833c8387748962524f67d0ffa1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9323,7 +9352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3917987040164284424, guid: 133dd966d48bf754caa96bbd71108281, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3917987040164284424, guid: 133dd966d48bf754caa96bbd71108281, type: 3}
       propertyPath: m_AnchorMax.x
