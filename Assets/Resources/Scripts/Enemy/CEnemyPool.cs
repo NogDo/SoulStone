@@ -18,8 +18,8 @@ public class CEnemyPool : MonoBehaviour
     {
         enemyFactory = GetComponent<CEnemyFactory>();
 
-        nBasicEnemyCount = 3;
-        nEliteEnemyCount = 5;
+        nBasicEnemyCount = 0;
+        nEliteEnemyCount = 0;
 
         oBasicEnemyPool = new Queue<GameObject>();
         oEliteEnemyPool = new Queue<GameObject>();

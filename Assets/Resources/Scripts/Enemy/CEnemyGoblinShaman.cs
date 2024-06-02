@@ -10,6 +10,7 @@ public class CEnemyGoblinShaman : CEnemy
     public override void Init()
     {
         fMoveSpeed = 3.5f;
+        fRotateSpeed = 3.0f;
         fGravityPower = 9.8f;
         fHp = 1000.0f;
         fAttack = 20.0f;
@@ -18,7 +19,7 @@ public class CEnemyGoblinShaman : CEnemy
 
     void OnEnable()
     {
-        CPathRequestManager.RequestPath(transform.position, tfTarget.position, OnPathFound);
+        
     }
 
     void OnDisable()
