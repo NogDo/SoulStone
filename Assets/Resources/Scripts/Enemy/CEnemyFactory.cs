@@ -21,7 +21,6 @@ public class CEnemyFactory : MonoBehaviour
     public void CreateEnemy(EEnemy enemy)
     {
         GameObject oEnemy = Instantiate(oEnemyPrefabList[(int)enemy], transform);
-        oEnemy.GetComponent<CEnemy>().Init();
         oEnemy.SetActive(false);
     }
 }

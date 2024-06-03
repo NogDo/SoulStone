@@ -23,6 +23,10 @@ public class CCharacterBarbarian : CCharacter
         fGravityPower = 9.8f;
         fDashPower = 15.0f;
 
+        fHp = 150.0f;
+        fAttack = 10.0f;
+        fDeffence = 0.0f;
+
         nMaxDashCount = 2;
         nNowDashCount = nMaxDashCount;
         nLevel = 1;

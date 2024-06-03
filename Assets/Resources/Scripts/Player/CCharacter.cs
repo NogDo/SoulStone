@@ -39,6 +39,9 @@ public abstract class CCharacter : MonoBehaviour
     protected float fMoveSpeed;
     protected float fGravityPower;
     protected float fDashPower;
+    protected float fHp;
+    protected float fAttack;
+    protected float fDeffence;
     protected int nMaxDashCount;
     protected int nNowDashCount;
     protected int nLevel;
@@ -70,11 +73,6 @@ public abstract class CCharacter : MonoBehaviour
         {
             return characterController;
         }
-
-        private set
-        {
-            characterController = value;
-        }
     }
 
     /// <summary>
@@ -86,11 +84,6 @@ public abstract class CCharacter : MonoBehaviour
         get
         {
             return animator;
-        }
-
-        private set
-        {
-            animator = value;
         }
     }
 
@@ -159,11 +152,6 @@ public abstract class CCharacter : MonoBehaviour
         {
             return fMoveSpeed;
         }
-
-        set
-        {
-            fMoveSpeed = value;
-        }
     }
 
     /// <summary>
@@ -174,11 +162,6 @@ public abstract class CCharacter : MonoBehaviour
         get
         {
             return fGravityPower;
-        }
-
-        set
-        {
-            fGravityPower = value;
         }
     }
 
@@ -191,10 +174,38 @@ public abstract class CCharacter : MonoBehaviour
         {
             return fDashPower;
         }
+    }
 
-        set
+    /// <summary>
+    /// 플레이어 체력
+    /// </summary>
+    public float HP
+    {
+        get
         {
-            fDashPower = value;
+            return fHp;
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 공격력
+    /// </summary>
+    public float Attack
+    {
+        get
+        {
+            return fAttack;
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 방어력
+    /// </summary>
+    public float Deffence
+    {
+        get
+        {
+            return fDeffence;
         }
     }
 
@@ -260,5 +271,14 @@ public abstract class CCharacter : MonoBehaviour
         // 파티클 생성 후 캐릭터 스킬에 넣는다.
         characterSKills[index].oParticle = Instantiate(skillData.oParticle, transform.GetChild(6).transform);
         characterSKills[index].oParticle.SetActive(false);
+    }
+
+    /// <summary>
+    /// 플레이어 피격
+    /// </summary>
+    /// <param name="damage">적 데미지</param>
+    public void Hit(float damage)
+    {
+        fHp -= damage;
     }
 }

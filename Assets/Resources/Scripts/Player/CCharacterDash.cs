@@ -25,17 +25,12 @@ public class CCharacterDash : MonoBehaviour
     /// </summary>
     void CharacterDash()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space))
         {
             if (character.NowDashCount > 0)
             {
                 StartCoroutine("Dash");
             }
-        }
-
-        else if (Input.GetMouseButtonDown(0))
-        {
-            character.MoveSpeed += 1;
         }
     }
 

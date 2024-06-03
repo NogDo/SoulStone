@@ -18,8 +18,8 @@ public class CEnemyPool : MonoBehaviour
     {
         enemyFactory = GetComponent<CEnemyFactory>();
 
-        nBasicEnemyCount = 0;
-        nEliteEnemyCount = 0;
+        nBasicEnemyCount = 20;
+        nEliteEnemyCount = 5;
 
         oBasicEnemyPool = new Queue<GameObject>();
         oEliteEnemyPool = new Queue<GameObject>();
@@ -38,7 +38,7 @@ public class CEnemyPool : MonoBehaviour
     /// <summary>
     /// 사용한 기본 적을 다시 기본 적 풀에 반환
     /// </summary>
-    /// <param name="oEnemy">사용한 적</param>
+    /// <param name="oEnemy">사용한 기본 적</param>
     public void BackBasicEnemyPool(GameObject oEnemy)
     {
         oBasicEnemyPool.Enqueue(oEnemy);
@@ -47,7 +47,7 @@ public class CEnemyPool : MonoBehaviour
     /// <summary>
     /// 사용한 엘리트 적을 다시 엘리트 적 풀에 반환
     /// </summary>
-    /// <param name="oEnemy">엘리트 적</param>
+    /// <param name="oEnemy">사용한 엘리트 적</param>
     public void BackEliteEnemyPool(GameObject oEnemy)
     {
         oEliteEnemyPool.Enqueue(oEnemy);
