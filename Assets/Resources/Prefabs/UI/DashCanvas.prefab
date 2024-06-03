@@ -39,7 +39,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 56, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.1499939, y: 1}
+  m_AnchoredPosition: {x: -0.15002441, y: 1}
   m_SizeDelta: {x: 224, y: 224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3917987040164284429
@@ -141,7 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7ea789c686e09469b4f3003413646e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tfCharacter: {fileID: 0}
 --- !u!114 &9103441084081010716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,5 +154,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oDashImage: {fileID: 5508135542667019318, guid: 9e287ee4acd0f4144acbbec94c5c9ab7, type: 3}
-  character: {fileID: 0}
+  fTime: 0
   oDashImageList: []

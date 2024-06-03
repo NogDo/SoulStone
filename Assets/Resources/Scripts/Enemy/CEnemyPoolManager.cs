@@ -30,7 +30,7 @@ public class CEnemyPoolManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(10.0f);
+            yield return new WaitForSeconds(1.0f);
 
             if (nCount % 5 == 0)
             {

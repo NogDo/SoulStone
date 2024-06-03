@@ -20,6 +20,7 @@ public abstract class CEnemy : MonoBehaviour
     protected Animator animator;
     protected Transform tfTarget;
     protected NavMeshAgent agent;
+    protected CHpCanvasManager hpCanvasManager;
 
     protected Vector3 v3SpawnPoint;
     protected EState State;
@@ -27,6 +28,7 @@ public abstract class CEnemy : MonoBehaviour
 
     protected float fMoveSpeed;
     protected float fRotateSpeed;
+    protected float fMaxHp;
     protected float fHp;
     protected float fAttack;
 
@@ -40,6 +42,7 @@ public abstract class CEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         tfTarget = FindObjectOfType<CCharacter>().GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
+        hpCanvasManager = transform.parent.GetChild(1).GetComponent<CHpCanvasManager>();
     }
 
     public abstract void Init();
@@ -167,6 +170,10 @@ public abstract class CEnemy : MonoBehaviour
     public void Hit(float damage)
     {
         fHp -= damage;
-        print(gameObject.name + " : " + fHp);
+
+        float percent = fHp / fMaxHp;
+
+        hpCanvasManager.ActiveHpImage();
+        hpCanvasManager.DecreaseHpAmount(percent);
     }
 }

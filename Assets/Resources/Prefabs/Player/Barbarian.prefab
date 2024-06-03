@@ -3022,7 +3022,7 @@ MonoBehaviour:
     fAttack: 0
     fCoolTime: 0
   defaultSkill:
-    animationClip: {fileID: 7400000, guid: a12f6a3ae350fa94c9186eaef32b10f1, type: 2}
+    animationClip: {fileID: 7400000, guid: f42f0c4e1f18ccc4a8eed57ba7b1c04c, type: 2}
     oParticle: {fileID: 7881393979009851569, guid: 54821cddb46f1c345a2d8c95e2750d2a, type: 3}
     fAttack: 10
     fCoolTime: 2

@@ -17,7 +17,8 @@ public class CEnemyGoblin : CEnemy
 
         fMoveSpeed = 3.0f;
         fRotateSpeed = 3.0f;
-        fHp = 100.0f;
+        fMaxHp = 100.0f;
+        fHp = fMaxHp;
         fAttack = 10.0f;
 
         isInAttackBoundary = false;
@@ -37,7 +38,8 @@ public class CEnemyGoblin : CEnemy
 
     void OnDisable()
     {
-        enemyPool.BackBasicEnemyPool(gameObject);
+        //enemyPool.BackBasicEnemyPool(gameObject);
+        enemyPool.BackBasicEnemyPool(transform.parent.gameObject);
     }
 
     /// <summary>

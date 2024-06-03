@@ -13,11 +13,14 @@ public class CEnemyGoblinShaman : CEnemy
 
         fMoveSpeed = 3.5f;
         fRotateSpeed = 3.0f;
-        fHp = 1000.0f;
+        fMaxHp = 1000.0f;
+        fHp = fMaxHp;
         fAttack = 20.0f;
 
         isInAttackBoundary = false;
         isAttack = false;
+
+
     }
 
     void OnEnable()
@@ -28,6 +31,7 @@ public class CEnemyGoblinShaman : CEnemy
     void OnDisable()
     {
         enemyPool.BackEliteEnemyPool(gameObject);
+        //enemyPool.BackEliteEnemyPool(transform.parent.gameObject);
     }
 
     public override void Attack()
