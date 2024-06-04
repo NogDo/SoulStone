@@ -18,8 +18,8 @@ public class CEnemyPool : MonoBehaviour
     {
         enemyFactory = GetComponent<CEnemyFactory>();
 
-        nBasicEnemyCount = 20;
-        nEliteEnemyCount = 5;
+        nBasicEnemyCount = 5;
+        nEliteEnemyCount = 0;
 
         oBasicEnemyPool = new Queue<GameObject>();
         oEliteEnemyPool = new Queue<GameObject>();
@@ -60,13 +60,13 @@ public class CEnemyPool : MonoBehaviour
     {
         if (oBasicEnemyPool.Count != 0)
         {
-            oBasicEnemyPool.Dequeue().SetActive(true);
+            oBasicEnemyPool.Dequeue().transform.GetChild(0).gameObject.SetActive(true);
         }
 
         else
         {
             enemyFactory.CreateEnemy(EEnemy.GOBLIN);
-            oBasicEnemyPool.Dequeue().SetActive(true);
+            oBasicEnemyPool.Dequeue().transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 
@@ -77,13 +77,13 @@ public class CEnemyPool : MonoBehaviour
     {
         if (oEliteEnemyPool.Count != 0)
         {
-            oEliteEnemyPool.Dequeue().SetActive(true);
+            oEliteEnemyPool.Dequeue().transform.GetChild(0).gameObject.SetActive(true);
         }
 
         else
         {
             enemyFactory.CreateEnemy(EEnemy.GOBLIN_SHAMAN);
-            oEliteEnemyPool.Dequeue().SetActive(true);
+            oEliteEnemyPool.Dequeue().transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 }

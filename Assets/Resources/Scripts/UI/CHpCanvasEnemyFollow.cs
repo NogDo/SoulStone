@@ -16,7 +16,6 @@ public class CHpCanvasEnemyFollow : MonoBehaviour
         tfTarget = transform.parent.GetChild(0).GetComponent<Transform>();
 
         v3StartHpCanvasPosition = transform.position;
-        v3StartTargetPosition = tfTarget.position;
     }
 
     void LateUpdate()
@@ -29,7 +28,7 @@ public class CHpCanvasEnemyFollow : MonoBehaviour
     /// </summary>
     void HpCanvasMove()
     {
-        Vector3 v3NowCanvasPosition = v3StartHpCanvasPosition + (tfTarget.position - v3StartTargetPosition);
+        Vector3 v3NowCanvasPosition = v3StartHpCanvasPosition + tfTarget.position;
 
         transform.position = v3NowCanvasPosition;
     }

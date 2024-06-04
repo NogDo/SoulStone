@@ -32,7 +32,7 @@ public class CEnemyPoolManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1.0f);
 
-            if (nCount % 5 == 0)
+            if (nCount % 100 == 0)
             {
                 enemyPool.SpawnEliteEnemy();
                 nCount = 1;

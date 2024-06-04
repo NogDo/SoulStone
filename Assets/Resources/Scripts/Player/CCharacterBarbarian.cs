@@ -24,7 +24,7 @@ public class CCharacterBarbarian : CCharacter
         fDashPower = 15.0f;
 
         fHp = 150.0f;
-        fAttack = 10.0f;
+        fAttack = 30.0f;
         fDeffence = 0.0f;
 
         nMaxDashCount = 2;

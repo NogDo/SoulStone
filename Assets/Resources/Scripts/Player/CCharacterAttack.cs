@@ -32,17 +32,17 @@ public class CCharacterAttack : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(character.SKill[0].fCoolTime);
+            yield return new WaitForSeconds(character.Skill[0].fCoolTime);
 
             character.Animator.SetTrigger("UseSkill1");
 
 
-            if (character.SKill[0].oParticle.activeSelf)
+            if (character.Skill[0].oParticle.activeSelf)
             {
-                character.SKill[0].oParticle.SetActive(false);
+                character.Skill[0].oParticle.SetActive(false);
             }
 
-            character.SKill[0].oParticle.SetActive(true);
+            character.Skill[0].oParticle.SetActive(true);
         }
     }
 }

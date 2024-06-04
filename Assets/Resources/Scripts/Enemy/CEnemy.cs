@@ -21,10 +21,13 @@ public abstract class CEnemy : MonoBehaviour
     protected Transform tfTarget;
     protected NavMeshAgent agent;
     protected CHpCanvasManager hpCanvasManager;
+    protected CDamageCanvasManager damageCanvasManager;
+    [SerializeField]
+    protected Material[] materials;
+    [SerializeField]
+    protected SkinnedMeshRenderer skinnedMeshRenderer;
 
-    protected Vector3 v3SpawnPoint;
     protected EState State;
-    protected Coroutine attackCoroutine;
 
     protected float fMoveSpeed;
     protected float fRotateSpeed;
@@ -43,6 +46,7 @@ public abstract class CEnemy : MonoBehaviour
         tfTarget = FindObjectOfType<CCharacter>().GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
         hpCanvasManager = transform.parent.GetChild(1).GetComponent<CHpCanvasManager>();
+        damageCanvasManager = transform.parent.GetChild(2).GetComponent<CDamageCanvasManager>();
     }
 
     public abstract void Init();
@@ -134,7 +138,11 @@ public abstract class CEnemy : MonoBehaviour
                 break;
 
             case EState.DIE:
-
+                transform.parent.GetChild(3).transform.position = transform.position;
+                transform.parent.GetChild(3).transform.rotation = transform.rotation;
+                transform.parent.GetChild(3).gameObject.SetActive(true);
+                gameObject.SetActive(false);
+                hpCanvasManager.InActiveHpImage();
                 break;
         }
 
@@ -152,6 +160,22 @@ public abstract class CEnemy : MonoBehaviour
         {
             Hit(tfTarget.GetComponent<CCharacter>().Attack);
         }
+    }
+
+    /// <summary>
+    /// 적을 소환할 랜덤 위치를 지정한다.
+    /// </summary>
+    /// <returns>Vector3</returns>
+    public Vector3 RandomSpawnPosition()
+    {
+        float fRandomX, fRandomZ;
+
+        fRandomX = Random.Range(-60.0f, 60.0f);
+        fRandomZ = Random.Range(-60.0f, 60.0f);
+
+        Vector3 spawnPosition = new Vector3(fRandomX, 0.0f, fRandomZ);
+
+        return spawnPosition;
     }
 
     /// <summary>
@@ -175,5 +199,39 @@ public abstract class CEnemy : MonoBehaviour
 
         hpCanvasManager.ActiveHpImage();
         hpCanvasManager.DecreaseHpAmount(percent);
+        damageCanvasManager.DisplayDamage(damage);
+
+        skinnedMeshRenderer.material = materials[1];
+        Invoke("ChangeMaterial", 0.3f);
+
+        StopCoroutine("Knockback");
+        StartCoroutine("Knockback");
+    }
+
+    /// <summary>
+    /// 피격됐을 때 교체된 Material을 원래대로 되돌린다.
+    /// </summary>
+    public void ChangeMaterial()
+    {
+        skinnedMeshRenderer.material = materials[0];
+    }
+
+    /// <summary>
+    /// 피격됐을 때 뒤로 넉백된다.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator Knockback()
+    {
+        float fNowTime = 0.0f;
+        Vector3 direction = tfTarget.transform.position - agent.transform.position;
+        direction = direction.normalized;
+
+        while (fNowTime <= 0.2f)
+        {
+            agent.transform.Translate(-direction * 5.0f * Time.deltaTime, Space.World);
+            fNowTime += Time.deltaTime;
+
+            yield return null;
+        }
     }
 }

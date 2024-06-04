@@ -135,7 +135,7 @@ public abstract class CCharacter : MonoBehaviour
         }
     }
 
-    public STSkillData[] SKill
+    public STSkillData[] Skill
     {
         get
         {

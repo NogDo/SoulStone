@@ -29,6 +29,8 @@ public class CEnemyGoblin : CEnemy
             weaponCollider = transform.GetComponentInChildren<BoxCollider>();
         }
         weaponCollider.enabled = false;
+
+        transform.position = RandomSpawnPosition();
     }
 
     void OnEnable()
