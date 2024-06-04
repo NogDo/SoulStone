@@ -8,7 +8,6 @@ public class CDashCanvasFollow : MonoBehaviour
     Transform tfCharacter;
 
     Vector3 v3StartDashCanvasPosition;
-    Vector3 v3StartCharacterPosition;
     #endregion
 
     void Start()
@@ -16,7 +15,6 @@ public class CDashCanvasFollow : MonoBehaviour
         tfCharacter = FindObjectOfType<CCharacter>().GetComponent<Transform>();
 
         v3StartDashCanvasPosition = transform.position;
-        v3StartCharacterPosition = tfCharacter.position;
     }
 
     void LateUpdate()
@@ -29,7 +27,7 @@ public class CDashCanvasFollow : MonoBehaviour
     /// </summary>
     void DashCanvasMove()
     {
-        Vector3 v3NowCanvasPosition = v3StartDashCanvasPosition + (tfCharacter.position - v3StartCharacterPosition);
+        Vector3 v3NowCanvasPosition = v3StartDashCanvasPosition + tfCharacter.position;
 
         transform.position = v3NowCanvasPosition;
     }

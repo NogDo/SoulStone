@@ -163,17 +163,24 @@ public abstract class CEnemy : MonoBehaviour
     }
 
     /// <summary>
-    /// 적을 소환할 랜덤 위치를 지정한다.
+    /// 적이 소환될 위치를 랜덤으로 정한다.
     /// </summary>
     /// <returns>Vector3</returns>
     public Vector3 RandomSpawnPosition()
     {
-        float fRandomX, fRandomZ;
+        float X, Z, randRotation;
+        Vector3 spawnPosition;
 
-        fRandomX = Random.Range(-60.0f, 60.0f);
-        fRandomZ = Random.Range(-60.0f, 60.0f);
+        // 소환된 위치가 맵 밖일 경우 위치를 다시 지정
+        do
+        {
+            randRotation = Random.Range(0.0f, 360.0f);
+            X = Mathf.Cos(randRotation * Mathf.Deg2Rad) * 20.0f;
+            Z = Mathf.Sin(randRotation * Mathf.Deg2Rad) * 20.0f;
 
-        Vector3 spawnPosition = new Vector3(fRandomX, 0.0f, fRandomZ);
+            spawnPosition = new Vector3(X, 0.0f, Z);
+            spawnPosition += tfTarget.position;
+        } while (spawnPosition.x < -60.0f || spawnPosition.x > 60.0f || spawnPosition.z < -60.0f || spawnPosition.z > 60.0f);
 
         return spawnPosition;
     }

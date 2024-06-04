@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 4ba1401ebf5d79b498ee374299708fdc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Yangju Byeolsan
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 46b49b098350131458bb6a9c155c1515, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
