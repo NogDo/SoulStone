@@ -112,18 +112,17 @@ public class CCharacterController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("EnemyWeapon"))
         {
             character.Hit(other.transform.GetComponentInParent<CEnemy>().GetDamage());
         }
 
-        else if (other.CompareTag("EnemyXpGem"))
-        {
-            print("»Æ¿Œ");
-            character.GainXp(other.GetComponent<CEnemyXpGem>().XP);
-            other.gameObject.SetActive(false);
-        }
+        //else if (other.CompareTag("EnemyXpGem"))
+        //{
+        //    character.GainXp(other.gameObject.GetComponent<CEnemyXpGem>().XP);
+        //    other.gameObject.SetActive(false);
+        //}
     }
 }

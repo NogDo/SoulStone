@@ -5017,10 +5017,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6571701357566143543}
   - component: {fileID: 8951970879300534689}
-  - component: {fileID: 5425957746955901419}
   m_Layer: 6
   m_Name: PickUpRange
-  m_TagString: Untagged
+  m_TagString: PlayerPickupRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5051,20 +5050,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5425957746955901419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6784593120756433975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f72105e70d0d5c54eb94d33aa5d3518d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8084440489197290044
 GameObject:
   m_ObjectHideFlags: 0

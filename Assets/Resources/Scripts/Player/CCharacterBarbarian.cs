@@ -30,7 +30,7 @@ public class CCharacterBarbarian : CCharacter
         fMoveSpeed = 5.0f;
         fMaxHp = 120.0f;
         fHp = fMaxHp;
-        fAttack = 30.0f;
+        fAttack = 100.0f;
         fDeffence = 0.0f;
         fMaxXp = 2000.0f;
         fNowXp = 0.0f;
