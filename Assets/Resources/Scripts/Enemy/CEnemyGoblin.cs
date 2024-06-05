@@ -13,17 +13,22 @@ public class CEnemyGoblin : CEnemy
     /// </summary>
     public override void Init()
     {
-        State = EState.CHASE;
-
+        // 이동
         fMoveSpeed = 3.0f;
         fRotateSpeed = 3.0f;
+
+        // 스텟
         fMaxHp = 100.0f;
         fHp = fMaxHp;
         fAttack = 10.0f;
+        fXp = 100.0f;
 
+        // 상태
+        State = EState.CHASE;
         isInAttackBoundary = false;
         isAttack = false;
 
+        // 컴포넌트
         if (weaponCollider == null)
         {
             weaponCollider = transform.GetComponentInChildren<BoxCollider>();

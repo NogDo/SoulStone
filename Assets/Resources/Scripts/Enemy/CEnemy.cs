@@ -16,32 +16,47 @@ public enum EState
 public abstract class CEnemy : MonoBehaviour
 {
     #region protected 변수
+
+    #region 클래스 및 컴포넌트
     protected CEnemyPool enemyPool;
+    protected CEnemyXpGemPool enemyXpGemPool;
     protected Animator animator;
-    protected Transform tfTarget;
-    protected NavMeshAgent agent;
     protected CHpCanvasManager hpCanvasManager;
     protected CDamageCanvasManager damageCanvasManager;
     [SerializeField]
     protected Material[] materials;
     [SerializeField]
     protected SkinnedMeshRenderer skinnedMeshRenderer;
+    #endregion
 
-    protected EState State;
+    #region 이동 관련
+    protected Transform tfTarget;
+    protected NavMeshAgent agent;
 
     protected float fMoveSpeed;
     protected float fRotateSpeed;
+    #endregion
+
+    #region 스텟
     protected float fMaxHp;
     protected float fHp;
     protected float fAttack;
+    protected float fXp;
+    #endregion
+
+    #region 적 상태
+    protected EState State;
 
     protected bool isInAttackBoundary;
     protected bool isAttack;
     #endregion
 
+    #endregion
+
     void Awake()
     {
         enemyPool = FindObjectOfType<CEnemyPool>();
+        enemyXpGemPool = FindObjectOfType<CEnemyXpGemPool>();
         animator = GetComponent<Animator>();
         tfTarget = FindObjectOfType<CCharacter>().GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
@@ -138,11 +153,7 @@ public abstract class CEnemy : MonoBehaviour
                 break;
 
             case EState.DIE:
-                transform.parent.GetChild(3).transform.position = transform.position;
-                transform.parent.GetChild(3).transform.rotation = transform.rotation;
-                transform.parent.GetChild(3).gameObject.SetActive(true);
-                gameObject.SetActive(false);
-                hpCanvasManager.InActiveHpImage();
+                Die();
                 break;
         }
 
@@ -240,5 +251,19 @@ public abstract class CEnemy : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    /// <summary>
+    /// 적이 죽었을 때 실행되는 메서드 (Ragdoll과 경험치 돌을 활성화시키고 hp캔버스와 적오브젝트를 비활성화 시킨다.)
+    /// </summary>
+    public void Die()
+    {
+        transform.parent.GetChild(3).transform.position = transform.position;
+        transform.parent.GetChild(3).transform.rotation = transform.rotation;
+        transform.parent.GetChild(3).gameObject.SetActive(true);
+        enemyXpGemPool.SpawnXpGem(fXp, transform.position);
+
+        hpCanvasManager.InActiveHpImage();
+        gameObject.SetActive(false);
     }
 }

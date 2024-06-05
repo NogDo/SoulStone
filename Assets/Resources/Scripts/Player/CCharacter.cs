@@ -25,26 +25,43 @@ public class AnimationClipOverrides : List<KeyValuePair<AnimationClip, Animation
 public abstract class CCharacter : MonoBehaviour
 {
     #region protected 변수
+
+    #region 클래스 및 컴포넌트
     protected CharacterController characterController;
     protected Animator animator;
     protected AnimatorOverrideController animatorOverrideController;
     protected AnimationClipOverrides animationClipOverride;
+    protected CPlayerHpUIConrtol playerHpUIConrtol;
+    protected CLevelUIControl levelUIControl;
+    #endregion
 
+    #region 이동 관련
     protected Vector3 v3MoveDirection;
     protected Vector3 v3RotateDirection;
     protected Vector3 v3MousePointerToWorldPosition;
-    [SerializeField]
-    protected STSkillData[] characterSKills;
 
-    protected float fMoveSpeed;
     protected float fGravityPower;
     protected float fDashPower;
-    protected float fHp;
-    protected float fAttack;
-    protected float fDeffence;
-    protected int nMaxDashCount;
     protected int nNowDashCount;
+    #endregion
+
+    #region 스킬
+    [SerializeField]
+    protected STSkillData[] characterSKills;
+    #endregion
+
+    #region 캐릭터 변하는 스텟
+    protected float fMoveSpeed;
+    protected float fAttack;
+    protected float fMaxHp;
+    protected float fHp;
+    protected float fDeffence;
+    protected float fMaxXp;
+    protected float fNowXp;
+    protected int nMaxDashCount;
     protected int nLevel;
+    #endregion
+
     #endregion
 
     void Awake()
@@ -57,6 +74,11 @@ public abstract class CCharacter : MonoBehaviour
 
         animationClipOverride = new AnimationClipOverrides(animatorOverrideController.overridesCount);
         animatorOverrideController.GetOverrides(animationClipOverride);
+
+        playerHpUIConrtol = FindObjectOfType<CPlayerHpUIConrtol>();
+        playerHpUIConrtol.Init(Mathf.RoundToInt(fHp));
+
+        levelUIControl = FindObjectOfType<CLevelUIControl>();
     }
 
     /// <summary>
@@ -279,6 +301,42 @@ public abstract class CCharacter : MonoBehaviour
     /// <param name="damage">적 데미지</param>
     public void Hit(float damage)
     {
-        fHp -= damage;
+        fHp = (fHp - damage) > 0 ? fHp - damage : 0;
+
+        float percent = fHp / fMaxHp;
+        playerHpUIConrtol.ChangeValue(Mathf.RoundToInt(fHp), percent);
+    }
+
+    /// <summary>
+    /// 경험치 획득
+    /// </summary>
+    /// <param name="xp">획득한 경험치</param>
+    public void GainXp(float xp)
+    {
+        fNowXp += xp;
+
+        levelUIControl.SetXpBarLength(fNowXp / fMaxXp);
+
+        if (fNowXp >= fMaxXp)
+        {
+            LevelUp();
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 레벨업
+    /// </summary>
+    public void LevelUp()
+    {
+        do
+        {
+            nLevel++;
+            levelUIControl.SetText(nLevel);
+
+            fNowXp -= fMaxXp;
+            fMaxXp *= 1.06f;
+        } while (fNowXp >= fMaxXp);
+
+        levelUIControl.SetXpBarLength(fNowXp / fMaxXp);
     }
 }

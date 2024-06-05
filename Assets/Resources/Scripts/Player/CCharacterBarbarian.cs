@@ -19,19 +19,24 @@ public class CCharacterBarbarian : CCharacter
     /// </summary>
     public override void Init()
     {
-        fMoveSpeed = 5.0f;
+        // 이동 관련
         fGravityPower = 9.8f;
         fDashPower = 15.0f;
 
-        fHp = 150.0f;
+        // 스킬
+        characterSKills = new STSkillData[6];
+
+        // 캐릭터 스텟
+        fMoveSpeed = 5.0f;
+        fMaxHp = 120.0f;
+        fHp = fMaxHp;
         fAttack = 30.0f;
         fDeffence = 0.0f;
-
+        fMaxXp = 2000.0f;
+        fNowXp = 0.0f;
         nMaxDashCount = 2;
         nNowDashCount = nMaxDashCount;
         nLevel = 1;
-
-        characterSKills = new STSkillData[6];
     }
 
     void Start()

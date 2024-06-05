@@ -14,13 +14,15 @@ public class CDashCanvasManager : MonoBehaviour
     CCharacter character;
     Coroutine cImageCoolTime;
 
-    [SerializeField]
-    List<GameObject> oDashImageList;
+    List<GameObject> oDashCooltimeImageListWorld;
+    GameObject oDashCooltimeImageUI;
     #endregion
 
     void Start()
     {
         character = FindObjectOfType<CCharacter>();
+        oDashCooltimeImageListWorld = new List<GameObject>();
+        oDashCooltimeImageUI = GameObject.Find("Image_CoolTime");
 
         this.GetComponent<RectTransform>().sizeDelta = new Vector2
             (
@@ -31,10 +33,10 @@ public class CDashCanvasManager : MonoBehaviour
         for (int i = 0; i < character.MaxDashCount; ++i)
         {
             GameObject dashImage = Instantiate(oDashImage, transform);
-            oDashImageList.Add(dashImage);
+            oDashCooltimeImageListWorld.Add(dashImage);
         }
 
-        fTime = 2.0f;
+        oDashCooltimeImageUI.SetActive(false);
     }
 
     /// <summary>
@@ -42,7 +44,8 @@ public class CDashCanvasManager : MonoBehaviour
     /// </summary>
     public void PlayImageCoolTime()
     {
-        oDashImageList[character.NowDashCount].transform.GetChild(1).gameObject.SetActive(true);
+        oDashCooltimeImageListWorld[character.NowDashCount].transform.GetChild(1).gameObject.SetActive(true);
+        oDashCooltimeImageUI.SetActive(true);
 
         if (cImageCoolTime == null)
         {
@@ -63,10 +66,11 @@ public class CDashCanvasManager : MonoBehaviour
             yield return null;
         }
 
-        for (int i = 0; i < oDashImageList.Count; ++i)
+        for (int i = 0; i < oDashCooltimeImageListWorld.Count; ++i)
         {
-            oDashImageList[i].transform.GetChild(1).gameObject.SetActive(false);
+            oDashCooltimeImageListWorld[i].transform.GetChild(1).gameObject.SetActive(false);
         }
+        oDashCooltimeImageUI.SetActive(false);
 
         fTime = 2.0f;
         cImageCoolTime = null;
