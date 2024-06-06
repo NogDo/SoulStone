@@ -90,8 +90,6 @@ public class CEnemyXpGem : MonoBehaviour
         v3StartPosition = transform.position;
         v3MiddlePosition = new Vector3(fRandX, fRandY, fRandZ);
 
-        GetComponent<Collider>().isTrigger = true;
-
         StopCoroutine("SpawnBezierCurve");
         cMagnetBezierCurve = StartCoroutine("MagnetBezierCurve");
     }
@@ -126,6 +124,8 @@ public class CEnemyXpGem : MonoBehaviour
     {
         float fTime = 0.0f;
         float fDuration = 0.5f;
+
+        GetComponent<Collider>().isTrigger = true;
 
         while (fTime < fDuration)
         {
