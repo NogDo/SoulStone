@@ -2997,36 +2997,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eee162bfbf814b41a3a826e481466dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterSKills:
-  - animationClip: {fileID: 7400000, guid: f5d70df1408c23f4ba178d97a96e0ede, type: 2}
+  characterActiveSkills:
+  - attackType: 
+    animationClip: {fileID: 7400000, guid: f5d70df1408c23f4ba178d97a96e0ede, type: 2}
     oParticle: {fileID: 0}
+    skillSprite: {fileID: 0}
+    skillName: 
+    skillInfo: 
     fAttack: 0
     fCoolTime: 0
-  - animationClip: {fileID: 7400000, guid: 6ecd63359f1321f42bab6ee60a879995, type: 2}
+  - attackType: 
+    animationClip: {fileID: 7400000, guid: 6ecd63359f1321f42bab6ee60a879995, type: 2}
     oParticle: {fileID: 0}
+    skillSprite: {fileID: 0}
+    skillName: 
+    skillInfo: 
     fAttack: 0
     fCoolTime: 0
-  - animationClip: {fileID: 7400000, guid: 494a2b5b347beb94c8cc47eff2259c81, type: 2}
+  - attackType: 
+    animationClip: {fileID: 7400000, guid: 494a2b5b347beb94c8cc47eff2259c81, type: 2}
     oParticle: {fileID: 0}
+    skillSprite: {fileID: 0}
+    skillName: 
+    skillInfo: 
     fAttack: 0
     fCoolTime: 0
-  - animationClip: {fileID: 7400000, guid: b44054296d55fbd4f9a46236b076e5ef, type: 2}
+  - attackType: 
+    animationClip: {fileID: 7400000, guid: b44054296d55fbd4f9a46236b076e5ef, type: 2}
     oParticle: {fileID: 0}
+    skillSprite: {fileID: 0}
+    skillName: 
+    skillInfo: 
     fAttack: 0
     fCoolTime: 0
-  - animationClip: {fileID: 7400000, guid: 03708539aa35ec042b0426f3732f543e, type: 2}
+  - attackType: 
+    animationClip: {fileID: 7400000, guid: 03708539aa35ec042b0426f3732f543e, type: 2}
     oParticle: {fileID: 0}
+    skillSprite: {fileID: 0}
+    skillName: 
+    skillInfo: 
     fAttack: 0
     fCoolTime: 0
-  - animationClip: {fileID: 7400000, guid: f58efb26b3a2eaa46b770060a47babfc, type: 2}
+  - attackType: 
+    animationClip: {fileID: 7400000, guid: f58efb26b3a2eaa46b770060a47babfc, type: 2}
     oParticle: {fileID: 0}
+    skillSprite: {fileID: 0}
+    skillName: 
+    skillInfo: 
     fAttack: 0
     fCoolTime: 0
   defaultSkill:
+    attackType: 000000000100000002000000
     animationClip: {fileID: 7400000, guid: 2461f55b9b800674c8204ae1cb99429e, type: 2}
     oParticle: {fileID: 7881393979009851569, guid: 54821cddb46f1c345a2d8c95e2750d2a, type: 3}
-    fAttack: 10
-    fCoolTime: 2
+    skillSprite: {fileID: 21300000, guid: c477d52c11d8aea4c8f461532319a647, type: 3}
+    skillName: "\uD6E8\uC708\uB4DC"
+    skillInfo: 
+    fAttack: 230
+    fCoolTime: 1.4
 --- !u!114 &-5086687140616085346
 MonoBehaviour:
   m_ObjectHideFlags: 0

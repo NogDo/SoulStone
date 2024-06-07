@@ -6,7 +6,7 @@ public class CCharacterBarbarian : CCharacter
 {
     #region private 변수
     [SerializeField]
-    STSkillData defaultSkill;
+    STActiveSkillData defaultSkill;
     #endregion
 
     public CCharacterBarbarian()
@@ -24,7 +24,7 @@ public class CCharacterBarbarian : CCharacter
         fDashPower = 15.0f;
 
         // 스킬
-        characterSKills = new STSkillData[6];
+        characterActiveSkills = new STActiveSkillData[6];
 
         // 캐릭터 스텟
         fMoveSpeed = 5.0f;

@@ -33,6 +33,7 @@ public abstract class CCharacter : MonoBehaviour
     protected AnimationClipOverrides animationClipOverride;
     protected CPlayerHpUIConrtol playerHpUIConrtol;
     protected CLevelUIControl levelUIControl;
+    protected GameObject oSelectSkillPanel;
     #endregion
 
     #region 이동 관련
@@ -45,9 +46,9 @@ public abstract class CCharacter : MonoBehaviour
     protected int nNowDashCount;
     #endregion
 
-    #region 스킬
+    #region 액티브 스킬
     [SerializeField]
-    protected STSkillData[] characterSKills;
+    protected STActiveSkillData[] characterActiveSkills;
     #endregion
 
     #region 캐릭터 변하는 스텟
@@ -79,6 +80,7 @@ public abstract class CCharacter : MonoBehaviour
         playerHpUIConrtol.Init(Mathf.RoundToInt(fHp));
 
         levelUIControl = FindObjectOfType<CLevelUIControl>();
+        oSelectSkillPanel = GameObject.Find("UI").transform.GetChild(4).gameObject;
     }
 
     /// <summary>
@@ -157,11 +159,11 @@ public abstract class CCharacter : MonoBehaviour
         }
     }
 
-    public STSkillData[] Skill
+    public STActiveSkillData[] Skill
     {
         get
         {
-            return characterSKills;
+            return characterActiveSkills;
         }
     }
 
@@ -282,17 +284,17 @@ public abstract class CCharacter : MonoBehaviour
     /// </summary>
     /// <param name="skillData">스킬 정보가 담긴 구조체</param>
     /// <param name="index">스킬 번호</param>
-    public void AddSkill(STSkillData skillData, int index)
+    public void AddSkill(STActiveSkillData skillData, int index)
     {
         // 애니메이션 클립 교체
-        animationClipOverride[characterSKills[index].animationClip.name] = skillData.animationClip;
+        animationClipOverride[characterActiveSkills[index].animationClip.name] = skillData.animationClip;
         animatorOverrideController.ApplyOverrides(animationClipOverride);
 
-        characterSKills[index] = skillData;
+        characterActiveSkills[index] = skillData;
 
         // 파티클 생성 후 캐릭터 스킬에 넣는다.
-        characterSKills[index].oParticle = Instantiate(skillData.oParticle, transform.GetChild(6).transform);
-        characterSKills[index].oParticle.SetActive(false);
+        characterActiveSkills[index].oParticle = Instantiate(skillData.oParticle, transform.GetChild(6).transform);
+        characterActiveSkills[index].oParticle.SetActive(false);
     }
 
     /// <summary>
@@ -330,11 +332,19 @@ public abstract class CCharacter : MonoBehaviour
     {
         do
         {
+            if (Time.timeScale == 0.0f)
+            {
+                continue;
+            }
+
             nLevel++;
             levelUIControl.SetText(nLevel);
 
             fNowXp -= fMaxXp;
             fMaxXp *= 1.06f;
+
+            oSelectSkillPanel.SetActive(true);
+            Time.timeScale = 0.0f;
         } while (fNowXp >= fMaxXp);
 
         levelUIControl.SetXpBarLength(fNowXp / fMaxXp);

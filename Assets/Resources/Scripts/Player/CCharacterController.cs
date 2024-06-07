@@ -118,11 +118,5 @@ public class CCharacterController : MonoBehaviour
         {
             character.Hit(other.transform.GetComponentInParent<CEnemy>().GetDamage());
         }
-
-        //else if (other.CompareTag("EnemyXpGem"))
-        //{
-        //    character.GainXp(other.gameObject.GetComponent<CEnemyXpGem>().XP);
-        //    other.gameObject.SetActive(false);
-        //}
     }
 }

@@ -20,29 +20,43 @@ public class CCharacterAttack : MonoBehaviour
 
         Skill = new IEnumerator[6];
 
-        Skill[0] = Skill1();
-        StartCoroutine(Skill[0]);
+        UseAddSkill(0);
     }
 
     /// <summary>
-    /// 첫번째 스킬 사용, 애니메이션과 파티클을 재생한다.
+    /// 추가된 스킬을 사용할 코루틴을 실행한다.
     /// </summary>
-    /// <returns></returns>
-    IEnumerator Skill1()
+    /// <param name="index">추가된 스킬의 번호(0 ~ 5)</param>
+    public void UseAddSkill(int index)
     {
+        Skill[index] = UseSkill(index);
+        StartCoroutine(Skill[index]);
+    }
+
+    /// <summary>
+    /// 스킬의 파티클과 애니메이션을 재생하는 코루틴
+    /// </summary>
+    /// <param name="index">사용될 스킬의 번호</param>
+    /// <returns></returns>
+    IEnumerator UseSkill(int index)
+    {
+        float cooltime;
+        string triggerName = "UseSkill" + (index + 1).ToString();
+
         while (true)
         {
-            yield return new WaitForSeconds(character.Skill[0].fCoolTime);
+            cooltime = (character.Skill[index].fCoolTime >= 0.2f) ? character.Skill[index].fCoolTime : 0.2f;
 
-            character.Animator.SetTrigger("UseSkill1");
+            yield return new WaitForSeconds(cooltime);
 
+            character.Animator.SetTrigger(triggerName);
 
-            if (character.Skill[0].oParticle.activeSelf)
+            if (character.Skill[index].oParticle.activeSelf)
             {
-                character.Skill[0].oParticle.SetActive(false);
+                character.Skill[index].oParticle.SetActive(false);
             }
 
-            character.Skill[0].oParticle.SetActive(true);
+            character.Skill[index].oParticle.SetActive(true);
         }
     }
 }
