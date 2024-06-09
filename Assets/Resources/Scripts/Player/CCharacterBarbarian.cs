@@ -25,18 +25,31 @@ public class CCharacterBarbarian : CCharacter
 
         // 스킬
         characterActiveSkills = new STActiveSkillData[6];
+        nSkillIndex = 0;
 
         // 캐릭터 스텟
-        fMoveSpeed = 5.0f;
+        fDefaultMoveSpeed = 4.0f;
+        fMoveSpeedAddPercent = 10.0f;
         fMaxHp = 120.0f;
         fHp = fMaxHp;
-        fAttack = 100.0f;
-        fDeffence = 0.0f;
+        fAttack = 0.0f;
+        fDeffence = 100.0f;
         fMaxXp = 2000.0f;
         fNowXp = 0.0f;
-        nMaxDashCount = 2;
+        fCastFrequency = 25.0f;
+        fArea = 0.0f;
+        fMultiCast = 0.0f;
+        fCritical = 0.0f;
+        fCriticalDamage = 215.0f;
+        fExp = 0.0f;
+        fDefaultPickUpArea = 3.0f;
+        fPickUpArea = 0.0f;
+        fBlockChance = 100.0f;
+        nReduceDamage = 0;
+        nMaxDashCount = 1;
         nNowDashCount = nMaxDashCount;
         nLevel = 1;
+        isCriticalChance = false;
     }
 
     void Start()

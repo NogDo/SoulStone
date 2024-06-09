@@ -26,6 +26,9 @@ public class CEnemyXpGem : MonoBehaviour
 
     void OnDisable()
     {
+        StopCoroutine("MagnetBezierCurve");
+        cMagnetBezierCurve = null;
+
         fXp = 0.0f;
         GetComponent<Collider>().isTrigger = false;
 
@@ -138,6 +141,5 @@ public class CEnemyXpGem : MonoBehaviour
         }
 
         transform.position = v3EndPosition;
-        cMagnetBezierCurve = null;
     }
 }

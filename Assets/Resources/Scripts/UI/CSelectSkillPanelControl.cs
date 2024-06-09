@@ -24,11 +24,23 @@ public class CSelectSkillPanelControl : MonoBehaviour
     TMP_Text[] tmpSkillInfo;
 
     StringBuilder stringBuilder;
+    List<int> selectedkillNumberList;
+    List<ESkillGrade> selectedSkillGrade;
+
+    bool isActiveSkillPanel;
     #endregion
 
     void Awake()
     {
+        character = FindObjectOfType<CCharacter>();
         skillData = FindObjectOfType<CSkillData>();
+
+        imgSkillFrame = new Image[3];
+        imgGradeFrame = new Image[3];
+        imgSkill = new Image[3];
+        tmpSkillName = new TMP_Text[3];
+        tmpSkillGrade = new TMP_Text[3];
+        tmpSkillInfo = new TMP_Text[3];
 
         for (int i = 0; i < 3; i++)
         {
@@ -41,9 +53,210 @@ public class CSelectSkillPanelControl : MonoBehaviour
         }
 
         stringBuilder = new StringBuilder();
+
+        selectedkillNumberList = new List<int>();
+        selectedSkillGrade = new List<ESkillGrade>();
+
+        isActiveSkillPanel = false;
     }
 
     void OnEnable()
+    {
+        Time.timeScale = 0.0f;
+
+        int randNum = Random.Range(1, 101);
+        if (character.SkillIndex >= 6)
+        {
+            randNum = 11;
+        }
+
+
+        if (randNum >= 10)
+        {
+            isActiveSkillPanel = false;
+            PassiveSkillPanel();
+        }
+
+        else
+        {
+            isActiveSkillPanel = true;
+            ActiveSkillPanel();
+        }
+    }
+
+    void OnDisable()
+    {
+        selectedkillNumberList.Clear();
+        selectedSkillGrade.Clear();
+
+        Time.timeScale = 1.0f;
+    }
+
+    /// <summary>
+    /// 스킬 인덱스를 가져온다.
+    /// </summary>
+    /// <param name="grade">스킬 등급</param>
+    /// <returns></returns>
+    int GetSkillNumber(ESkillGrade grade)
+    {
+        int skillNumber = Random.Range(0, skillData.PassiveSkillList.Count);
+
+        // 전에 나왔던 스킬 이라면 다시 뽑는다.
+        for (int i = 0; i < selectedkillNumberList.Count; i++)
+        {
+            if (skillNumber == selectedkillNumberList[i])
+            {
+                return GetSkillNumber(grade);
+            }
+        }
+
+        // 나온 스킬 등급이 존재하는 스킬이라면 스킬을 추가, 아니라면 다시 뽑는다.
+        if (skillData.PassiveSkillList[skillNumber].minGrade <= grade &&
+            skillData.PassiveSkillList[skillNumber].maxGrade >= grade)
+        {
+            selectedSkillGrade.Add(grade);
+            selectedkillNumberList.Add(skillNumber);
+            return skillNumber;
+        }
+
+        else
+        {
+            return GetSkillNumber(grade);
+        }
+    }
+
+    /// <summary>
+    /// 나온 스킬의 텍스트 정보를 가져온다.
+    /// </summary>
+    /// <param name="grade">스킬 등급</param>
+    /// <param name="skillNumber">스킬 인덱스</param>
+    /// <returns></returns>
+    string GetSkillInfo(ESkillGrade grade, int skillNumber)
+    {
+        stringBuilder.Clear();
+
+        for (int i = 0; i < skillData.PassiveSkillList[skillNumber].skillInfo.Length; i++)
+        {
+            stringBuilder.Append(skillData.PassiveSkillList[skillNumber].skillInfo[i]).Append(' ');
+
+            if (skillData.PassiveSkillList[skillNumber].fEffect.Length - 1 >= i)
+            {
+                switch (grade)
+                {
+                    case ESkillGrade.COMMON:
+                        stringBuilder.Append("<color=white>").Append
+                            (
+                            Mathf.Abs(skillData.PassiveSkillList[skillNumber].fEffect[i])
+                            );
+                        break;
+
+                    case ESkillGrade.UNCOMMON:
+                        stringBuilder.Append("<color=green>").Append
+                            (
+                                Mathf.Abs
+                                (
+                                    skillData.PassiveSkillList[skillNumber].fEffect[i] +
+                                    (skillData.PassiveSkillList[skillNumber].fEffect[i] * skillData.PassiveSkillList[skillNumber].fEffectAdditional[i])
+                                )
+                            );
+                        break;
+
+                    case ESkillGrade.RARE:
+                        stringBuilder.Append("<color=#00ffff>").Append
+                            (
+                                Mathf.Abs
+                                (
+                                    skillData.PassiveSkillList[skillNumber].fEffect[i] +
+                                    (skillData.PassiveSkillList[skillNumber].fEffect[i] * skillData.PassiveSkillList[skillNumber].fEffectAdditional[i] * 2)
+                                )
+                            );
+                        break;
+
+                    case ESkillGrade.EPIC:
+                        stringBuilder.Append("<color=#ff00ff>").Append
+                            (
+                                Mathf.Abs
+                                (
+                                    skillData.PassiveSkillList[skillNumber].fEffect[i] +
+                                    (skillData.PassiveSkillList[skillNumber].fEffect[i] * skillData.PassiveSkillList[skillNumber].fEffectAdditional[i] * 3)
+                                )
+                            );
+                        break;
+
+                    case ESkillGrade.LEGENDARY:
+                        stringBuilder.Append("<color=yellow>").Append
+                            (
+                                Mathf.Abs
+                                (
+                                    skillData.PassiveSkillList[skillNumber].fEffect[i] +
+                                    (skillData.PassiveSkillList[skillNumber].fEffect[i] * skillData.PassiveSkillList[skillNumber].fEffectAdditional[i] * 4)
+                                )
+                            );
+                        break;
+                }
+
+                if (skillData.PassiveSkillList[skillNumber].isPercent)
+                {
+                    stringBuilder.Append("% ").Append("</color>");
+                }
+
+                else
+                {
+                    stringBuilder.Append(' ').Append("</color>");
+                }
+            }
+        }
+
+        return stringBuilder.ToString();
+    }
+
+    /// <summary>
+    /// 고른 스킬의 능력치를 저장하여 캐릭터로 보낸다.
+    /// </summary>
+    /// <param name="index">고른 스킬 인덱스</param>
+    public void SelectSkill(int index)
+    {
+        if (isActiveSkillPanel)
+        {
+            character.AddSkill(skillData.ActiveSkillList[index], character.SkillIndex);
+        }
+
+        else
+        {
+            ESkillEffectType[] effectType = (ESkillEffectType[])skillData.PassiveSkillList[selectedkillNumberList[index]].effectType.Clone();
+            float[] effect = (float[])skillData.PassiveSkillList[selectedkillNumberList[index]].fEffect.Clone();
+            float[] effectAdditioonal = (float[])skillData.PassiveSkillList[selectedkillNumberList[index]].fEffectAdditional.Clone();
+
+            for (int i = 0; i < effectType.Length; i++)
+            {
+                switch (selectedSkillGrade[index])
+                {
+                    case ESkillGrade.UNCOMMON:
+                        effect[i] += (effect[i] * effectAdditioonal[i]);
+                        break;
+
+                    case ESkillGrade.RARE:
+                        effect[i] += (effect[i] * effectAdditioonal[i] * 2);
+                        break;
+
+                    case ESkillGrade.EPIC:
+                        effect[i] += (effect[i] * effectAdditioonal[i] * 3);
+                        break;
+
+                    case ESkillGrade.LEGENDARY:
+                        effect[i] += (effect[i] * effectAdditioonal[i] * 4);
+                        break;
+                }
+            }
+
+            character.AddAbility(effectType, effect);
+        }
+    }
+
+    /// <summary>
+    /// 패시브 스킬 패널 활성화
+    /// </summary>
+    void PassiveSkillPanel()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -93,10 +306,10 @@ public class CSelectSkillPanelControl : MonoBehaviour
                 imgGradeFrame[i].sprite = gradeFrameSprite[2];
                 imgSkill[i].sprite = skillData.PassiveSkillList[skillNumber].skillSprite;
 
-                tmpSkillName[i].color = Color.blue;
+                tmpSkillName[i].color = Color.cyan;
                 tmpSkillName[i].text = skillData.PassiveSkillList[skillNumber].skillName;
 
-                tmpSkillGrade[i].color = Color.blue;
+                tmpSkillGrade[i].color = Color.cyan;
                 tmpSkillGrade[i].text = "희귀 파워";
 
                 tmpSkillInfo[i].text = GetSkillInfo(ESkillGrade.RARE, skillNumber);
@@ -123,8 +336,8 @@ public class CSelectSkillPanelControl : MonoBehaviour
             {
                 skillNumber = GetSkillNumber(ESkillGrade.LEGENDARY);
 
-                imgSkillFrame[i].sprite = skillFrameSprite[3];
-                imgGradeFrame[i].sprite = gradeFrameSprite[3];
+                imgSkillFrame[i].sprite = skillFrameSprite[4];
+                imgGradeFrame[i].sprite = gradeFrameSprite[4];
                 imgSkill[i].sprite = skillData.PassiveSkillList[skillNumber].skillSprite;
 
                 tmpSkillName[i].color = Color.yellow;
@@ -138,82 +351,24 @@ public class CSelectSkillPanelControl : MonoBehaviour
         }
     }
 
-    void OnDisable()
+    /// <summary>
+    /// 액티브 스킬 패널 활성화
+    /// </summary>
+    void ActiveSkillPanel()
     {
-        if (character is null)
+        for (int i = 0; i < 3; i++)
         {
-            character = FindObjectOfType<CCharacter>();
+            imgSkillFrame[i].sprite = skillFrameSprite[0];
+            imgGradeFrame[i].sprite = gradeFrameSprite[0];
+            imgSkill[i].sprite = skillData.ActiveSkillList[i].skillSprite;
+
+            tmpSkillName[i].color = Color.white;
+            tmpSkillName[i].text = skillData.ActiveSkillList[i].skillName;
+
+            tmpSkillGrade[i].color = Color.white;
+            tmpSkillGrade[i].text = "액티브 스킬";
+
+            tmpSkillInfo[i].text = skillData.ActiveSkillList[i].skillInfo;
         }
-
-        Time.timeScale = 1.0f;
-    }
-
-    int GetSkillNumber(ESkillGrade grade)
-    {
-        int skillNumber = Random.Range(0, skillData.PassiveSkillList.Count);
-
-        if (skillData.PassiveSkillList[skillNumber].minGrade <= grade &&
-            skillData.PassiveSkillList[skillNumber].maxGrade >= grade)
-        {
-            return skillNumber;
-        }
-
-        else
-        {
-            return GetSkillNumber(grade);
-        }
-    }
-
-    string GetSkillInfo(ESkillGrade grade, int skillNumber)
-    {
-        stringBuilder.Clear();
-
-        for (int i = 0; i < skillData.PassiveSkillList[skillNumber].skillInfo.Length; i++)
-        {
-            stringBuilder.Append(skillData.PassiveSkillList[skillNumber].skillInfo[i]).Append(' ');
-
-            if (skillData.PassiveSkillList[skillNumber].fEffect.Length - 1 >= i)
-            {
-                switch (grade)
-                {
-                    case ESkillGrade.COMMON:
-                        stringBuilder.Append
-                            (
-                            skillData.PassiveSkillList[skillNumber].fEffect[i]
-                            ).Append(' ');
-                        break;
-
-                    case ESkillGrade.UNCOMMON:
-                        stringBuilder.Append
-                            (
-                            skillData.PassiveSkillList[skillNumber].fEffect[i] * (skillData.PassiveSkillList[skillNumber].fEffectAdditional[i] + 1)
-                            ).Append(' ');
-                        break;
-
-                    case ESkillGrade.RARE:
-                        stringBuilder.Append
-                            (
-                            skillData.PassiveSkillList[skillNumber].fEffect[i] * (skillData.PassiveSkillList[skillNumber].fEffectAdditional[i] + 2)
-                            ).Append(' ');
-                        break;
-
-                    case ESkillGrade.EPIC:
-                        stringBuilder.Append
-                            (
-                            skillData.PassiveSkillList[skillNumber].fEffect[i] * (skillData.PassiveSkillList[skillNumber].fEffectAdditional[i] + 3)
-                            ).Append(' ');
-                        break;
-
-                    case ESkillGrade.LEGENDARY:
-                        stringBuilder.Append
-                            (
-                            skillData.PassiveSkillList[skillNumber].fEffect[i] * (skillData.PassiveSkillList[skillNumber].fEffectAdditional[i] + 4)
-                            ).Append(' ');
-                        break;
-                }
-            }
-        }
-
-        return stringBuilder.ToString();
     }
 }

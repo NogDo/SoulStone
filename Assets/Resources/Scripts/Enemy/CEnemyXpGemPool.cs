@@ -13,7 +13,7 @@ public class CEnemyXpGemPool : MonoBehaviour
     {
         oXpGemPool = new Queue<GameObject>();
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 10; i++)
         {
             int randNum = Random.Range(0, oXpGemPrefabList.Count);
             GameObject oGem = Instantiate(oXpGemPrefabList[randNum], transform);

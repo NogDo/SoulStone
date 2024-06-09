@@ -9,17 +9,17 @@ public class CEnemyPoolManager : MonoBehaviour
 
     IEnumerator spawnEnemy;
 
-    int nCount;
+    float fSpawnTime;
     #endregion
 
     void Start()
     {
         enemyPool = FindObjectOfType<CEnemyPool>();
 
-        nCount = 1;
-
         spawnEnemy = SpawnEnemy();
         StartCoroutine(spawnEnemy);
+
+        fSpawnTime = 1.0f;
     }
 
     /// <summary>
@@ -30,19 +30,14 @@ public class CEnemyPoolManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1.0f);
-
-            if (nCount % 100 == 0)
+            if (Time.timeSinceLevelLoad >= 30.0f)
             {
-                enemyPool.SpawnEliteEnemy();
-                nCount = 1;
+                fSpawnTime = 0.5f;
             }
 
-            else
-            {
-                enemyPool.SpawnBasicEnemy();
-                nCount++;
-            }
+            yield return new WaitForSeconds(fSpawnTime);
+
+            enemyPool.SpawnBasicEnemy();
         }
     }
 }

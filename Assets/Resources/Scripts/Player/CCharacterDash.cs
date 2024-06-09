@@ -64,6 +64,11 @@ public class CCharacterDash : MonoBehaviour
         character.DecreaseNowDashCount();
         dashCanvas.PlayImageCoolTime();
 
+
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        int playerLayer = LayerMask.NameToLayer("Player");
+        Physics.IgnoreLayerCollision(enemyLayer, playerLayer, true);
+
         // ´ë½Ã
         while (Time.time < fStartTime + 0.2f)
         {
@@ -71,6 +76,8 @@ public class CCharacterDash : MonoBehaviour
 
             yield return null;
         }
+
+        Physics.IgnoreLayerCollision(enemyLayer, playerLayer, false);
     }
 
     /// <summary>

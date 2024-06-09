@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4850822827602639992}
-  - component: {fileID: 8279916226558595306}
+  - component: {fileID: -6088334344741742080}
   - component: {fileID: 143251455444700323}
   - component: {fileID: -6813768114758547649}
   m_Layer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7881393979009851569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7803364157741058534}
@@ -38,7 +38,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8279916226558595306
+--- !u!114 &-6088334344741742080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,11 +47,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7881393979009851569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f337de5c9a222347a8a4818a6345878, type: 3}
+  m_Script: {fileID: 11500000, guid: ea9e5134fc7a3444681eb4fc9f0700dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fTotalRunTime: 0.5
-  fColliderRunTime: 0.1
+  fColliderRunTime:
+  - 0.1
 --- !u!135 &143251455444700323
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -63,7 +64,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1.9
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &-6813768114758547649
 Rigidbody:
@@ -136,6 +137,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6267260506219021225, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260506581239392, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260506704096607, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
 --- !u!4 &6858755035867521232 stripped
@@ -157,6 +170,18 @@ PrefabInstance:
     - target: {fileID: 6267260505837781951, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260505837781951, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260505837781951, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260505837781951, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6267260505837781951, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
       propertyPath: m_LocalPosition.x
@@ -197,6 +222,30 @@ PrefabInstance:
     - target: {fileID: 6267260505837781951, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260506219021225, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260506581239392, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260506581239406, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260506581239406, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260506581239406, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260506704096607, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
@@ -260,6 +309,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6267260506219021225, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260506581239392, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260506704096607, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
 --- !u!4 &1739682398829038767 stripped
@@ -321,6 +382,18 @@ PrefabInstance:
     - target: {fileID: 6267260505837781951, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260506219021225, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260506581239392, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267260506704096607, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6be85bc7b3d00841b11d715739e4f41, type: 3}

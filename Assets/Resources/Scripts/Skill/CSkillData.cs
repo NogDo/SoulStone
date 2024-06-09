@@ -32,7 +32,8 @@ public enum ESkillEffectType
     ARMOR,
     BLOCK,
     REDUCEDAMAGE,
-    CRITICALCHANCE
+    CRITICALCHANCE,
+    DASH
 }
 
 /// <summary>
@@ -79,6 +80,7 @@ public struct STPassiveSkillData
     public string[] skillInfo;
     public float[] fEffect;
     public float[] fEffectAdditional;
+    public bool isPercent;
 }
 
 public class CSkillData : MonoBehaviour

@@ -24,19 +24,27 @@ public class CDashCanvasManager : MonoBehaviour
         oDashCooltimeImageListWorld = new List<GameObject>();
         oDashCooltimeImageUI = GameObject.Find("Image_CoolTime");
 
+        AddDash(character.MaxDashCount);
+
+        oDashCooltimeImageUI.SetActive(false);
+    }
+
+    /// <summary>
+    /// 대시 캔버스에 대시 이미지를 추가한다.
+    /// </summary>
+    public void AddDash(int addDashCount)
+    {
         this.GetComponent<RectTransform>().sizeDelta = new Vector2
             (
                 character.MaxDashCount * oDashImage.GetComponent<RectTransform>().sizeDelta.x + (character.MaxDashCount - 1) * 50.0f,
                 oDashImage.GetComponent<RectTransform>().sizeDelta.y
             );
 
-        for (int i = 0; i < character.MaxDashCount; ++i)
+        for (int i = 0; i < addDashCount; ++i)
         {
             GameObject dashImage = Instantiate(oDashImage, transform);
             oDashCooltimeImageListWorld.Add(dashImage);
         }
-
-        oDashCooltimeImageUI.SetActive(false);
     }
 
     /// <summary>

@@ -169,7 +169,35 @@ public abstract class CEnemy : MonoBehaviour
     {
         if (other.CompareTag("PlayerSkill"))
         {
-            Hit(tfTarget.GetComponent<CCharacter>().Attack);
+            int randNum = Random.Range(1, 101);
+            float damage;
+            bool isCritical = false;
+
+            if (tfTarget.GetComponent<CCharacter>().IsCriticalChance && fHp == fMaxHp)
+            {
+                isCritical = true;
+            }
+
+            else if (tfTarget.GetComponent<CCharacter>().Critical >= randNum)
+            {
+                isCritical = true;
+            }
+
+
+            if (isCritical)
+            {
+                damage = other.GetComponent<CParticlePlay>().Attack * tfTarget.GetComponent<CCharacter>().CriticalDamage / 100;
+            }
+
+            else
+            {
+                damage = other.GetComponent<CParticlePlay>().Attack * (1 + tfTarget.GetComponent<CCharacter>().Attack / 100);
+            }
+
+            float percent = damage / 10;
+
+            damage = Random.Range(damage - percent, damage + percent);
+            Hit(damage, isCritical);
         }
     }
 
@@ -209,15 +237,16 @@ public abstract class CEnemy : MonoBehaviour
     /// 적 피격
     /// </summary>
     /// <param name="damage">데미지</param>
-    public void Hit(float damage)
+    public void Hit(float damage, bool isCritical)
     {
+        damage = Mathf.Round(damage);
         fHp -= damage;
 
         float percent = fHp / fMaxHp;
 
         hpCanvasManager.ActiveHpImage();
         hpCanvasManager.DecreaseHpAmount(percent);
-        damageCanvasManager.DisplayDamage(damage);
+        damageCanvasManager.DisplayDamage(damage, isCritical);
 
         skinnedMeshRenderer.material = materials[1];
         Invoke("ChangeMaterial", 0.3f);
@@ -260,7 +289,14 @@ public abstract class CEnemy : MonoBehaviour
     {
         transform.parent.GetChild(3).transform.position = transform.position;
         transform.parent.GetChild(3).transform.rotation = transform.rotation;
+
+        // 전에 있던 시체가 아직도 활성화 되어있다면 꺼주고 다시 켜준다.
+        if (transform.parent.GetChild(3).gameObject.activeSelf)
+        {
+            transform.parent.GetChild(3).gameObject.SetActive(false);
+        }
         transform.parent.GetChild(3).gameObject.SetActive(true);
+
         enemyXpGemPool.SpawnXpGem(fXp, transform.position);
 
         hpCanvasManager.InActiveHpImage();

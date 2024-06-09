@@ -33,6 +33,7 @@ public abstract class CCharacter : MonoBehaviour
     protected AnimationClipOverrides animationClipOverride;
     protected CPlayerHpUIConrtol playerHpUIConrtol;
     protected CLevelUIControl levelUIControl;
+    protected CPlayerHitCanvasManager playerHitCanvasManager;
     protected GameObject oSelectSkillPanel;
     #endregion
 
@@ -49,18 +50,32 @@ public abstract class CCharacter : MonoBehaviour
     #region 액티브 스킬
     [SerializeField]
     protected STActiveSkillData[] characterActiveSkills;
+
+    protected int nSkillIndex;
     #endregion
 
     #region 캐릭터 변하는 스텟
-    protected float fMoveSpeed;
+    protected float fDefaultMoveSpeed;
+    protected float fMoveSpeedAddPercent;
     protected float fAttack;
     protected float fMaxHp;
     protected float fHp;
     protected float fDeffence;
     protected float fMaxXp;
     protected float fNowXp;
+    protected float fCastFrequency;
+    protected float fArea;
+    protected float fMultiCast;
+    protected float fCritical;
+    protected float fCriticalDamage;
+    protected float fExp;
+    protected float fDefaultPickUpArea;
+    protected float fPickUpArea;
+    protected float fBlockChance;
+    protected int nReduceDamage;
     protected int nMaxDashCount;
     protected int nLevel;
+    protected bool isCriticalChance;
     #endregion
 
     #endregion
@@ -80,7 +95,8 @@ public abstract class CCharacter : MonoBehaviour
         playerHpUIConrtol.Init(Mathf.RoundToInt(fHp));
 
         levelUIControl = FindObjectOfType<CLevelUIControl>();
-        oSelectSkillPanel = GameObject.Find("UI").transform.GetChild(4).gameObject;
+        playerHitCanvasManager = FindObjectOfType<CPlayerHitCanvasManager>();
+        oSelectSkillPanel = GameObject.Find("UI").transform.GetChild(5).gameObject;
     }
 
     /// <summary>
@@ -167,6 +183,14 @@ public abstract class CCharacter : MonoBehaviour
         }
     }
 
+    public int SkillIndex
+    {
+        get
+        {
+            return nSkillIndex;
+        }
+    }
+
     /// <summary>
     /// 플레이어 이동속도
     /// </summary>
@@ -174,7 +198,18 @@ public abstract class CCharacter : MonoBehaviour
     {
         get
         {
-            return fMoveSpeed;
+            return fDefaultMoveSpeed * (1 + fMoveSpeedAddPercent / 100);
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 이동속도 계수
+    /// </summary>
+    public float MoveSpeedPercent
+    {
+        get
+        {
+            return fMoveSpeedAddPercent;
         }
     }
 
@@ -212,13 +247,46 @@ public abstract class CCharacter : MonoBehaviour
     }
 
     /// <summary>
-    /// 플레이어 공격력
+    /// 플레이어 최대 체력
+    /// </summary>
+    public float MaxHP
+    {
+        get
+        {
+            return fMaxHp;
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 피해량
     /// </summary>
     public float Attack
     {
         get
         {
             return fAttack;
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 치명타 확률
+    /// </summary>
+    public float Critical
+    {
+        get
+        {
+            return fCritical;
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 치명타 데미지
+    /// </summary>
+    public float CriticalDamage
+    {
+        get
+        {
+            return fCriticalDamage;
         }
     }
 
@@ -230,6 +298,83 @@ public abstract class CCharacter : MonoBehaviour
         get
         {
             return fDeffence;
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 막기 확률
+    /// </summary>
+    public float BlockChance
+    {
+        get
+        {
+            return fBlockChance;
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 스킬 쿨타임 감소 퍼센트
+    /// </summary>
+    public float CastFrequency
+    {
+        get
+        {
+            return fCastFrequency;
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 스킬 범위 퍼센트
+    /// </summary>
+    public float Area
+    {
+        get
+        {
+            return fArea;
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 스킬 멀티 캐스트 확률
+    /// </summary>
+    public float MultiCast
+    {
+        get
+        {
+            return fMultiCast;
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 경험치 계수
+    /// </summary>
+    public float EXP
+    {
+        get
+        {
+            return fExp;
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 픽업 반경
+    /// </summary>
+    public float PickUpArea
+    {
+        get
+        {
+            return fPickUpArea;
+        }
+    }
+
+    /// <summary>
+    /// 플레이어 데미지 감소
+    /// </summary>
+    public int ReduceDamage
+    {
+        get
+        {
+            return nReduceDamage;
         }
     }
 
@@ -256,6 +401,17 @@ public abstract class CCharacter : MonoBehaviour
     }
 
     /// <summary>
+    /// 적 체력 100%일 때 크리티컬 여부
+    /// </summary>
+    public bool IsCriticalChance
+    {
+        get
+        {
+            return isCriticalChance;
+        }
+    }
+
+    /// <summary>
     /// 대시 카운트 1 감소
     /// </summary>
     public void DecreaseNowDashCount()
@@ -277,6 +433,9 @@ public abstract class CCharacter : MonoBehaviour
     public void IncreaseMaxDashCount()
     {
         nMaxDashCount++;
+
+        FillNowDashCount();
+        FindObjectOfType<CDashCanvasManager>().AddDash(1);
     }
 
     /// <summary>
@@ -290,11 +449,17 @@ public abstract class CCharacter : MonoBehaviour
         animationClipOverride[characterActiveSkills[index].animationClip.name] = skillData.animationClip;
         animatorOverrideController.ApplyOverrides(animationClipOverride);
 
+        // 캐릭터에 스킬을 넣는다.
         characterActiveSkills[index] = skillData;
 
         // 파티클 생성 후 캐릭터 스킬에 넣는다.
         characterActiveSkills[index].oParticle = Instantiate(skillData.oParticle, transform.GetChild(6).transform);
         characterActiveSkills[index].oParticle.SetActive(false);
+
+        // 스킬 사용
+        GetComponent<CCharacterAttack>().UseAddSkill(index);
+
+        nSkillIndex++;
     }
 
     /// <summary>
@@ -303,6 +468,30 @@ public abstract class CCharacter : MonoBehaviour
     /// <param name="damage">적 데미지</param>
     public void Hit(float damage)
     {
+        float randNum = Random.Range(1, 100);
+
+        if ((1 - 100 / BlockChance) * 100 >= randNum)
+        {
+            damage = 0.0f;
+        }
+
+        else
+        {
+            damage /= (0.5f + fDeffence / 200);
+
+            if (damage - nReduceDamage > 1)
+            {
+                damage -= nReduceDamage;
+            }
+
+            else
+            {
+                damage = 1;
+            }
+        }
+
+        playerHitCanvasManager.DisplayDamage(damage);
+
         fHp = (fHp - damage) > 0 ? fHp - damage : 0;
 
         float percent = fHp / fMaxHp;
@@ -315,6 +504,7 @@ public abstract class CCharacter : MonoBehaviour
     /// <param name="xp">획득한 경험치</param>
     public void GainXp(float xp)
     {
+        xp *= 1 + fExp / 100;
         fNowXp += xp;
 
         levelUIControl.SetXpBarLength(fNowXp / fMaxXp);
@@ -344,9 +534,89 @@ public abstract class CCharacter : MonoBehaviour
             fMaxXp *= 1.06f;
 
             oSelectSkillPanel.SetActive(true);
-            Time.timeScale = 0.0f;
         } while (fNowXp >= fMaxXp);
 
         levelUIControl.SetXpBarLength(fNowXp / fMaxXp);
+    }
+
+    /// <summary>
+    /// 플레이어의 능력치를 올린다.
+    /// </summary>
+    /// <param name="effectType">올라가는 능력치 타입</param>
+    /// <param name="effect">능력치 값</param>
+    public void AddAbility(ESkillEffectType[] effectType, float[] effect)
+    {
+        for (int i = 0; i < effectType.Length; i++)
+        {
+            switch (effectType[i])
+            {
+                case ESkillEffectType.DAMAGE:
+                    fAttack += effect[i];
+                    break;
+
+                case ESkillEffectType.COOLTIME:
+                    fCastFrequency += effect[i];
+                    break;
+
+                case ESkillEffectType.AREA:
+                    fArea += effect[i];
+                    transform.GetChild(6).localScale = Vector3.one * (1 + fArea / 100);
+                    break;
+
+                case ESkillEffectType.MULTICAST:
+                    fMultiCast += effect[i];
+                    break;
+
+                case ESkillEffectType.CRITICAL:
+                    fCritical += effect[i];
+                    break;
+
+                case ESkillEffectType.CRITICALDAMAGE:
+                    fCriticalDamage += effect[i];
+                    break;
+
+                case ESkillEffectType.SPEED:
+                    fMoveSpeedAddPercent += effect[i];
+                    break;
+
+                case ESkillEffectType.EXP:
+                    fExp += effect[i];
+                    break;
+
+                case ESkillEffectType.PICKUPAREA:
+                    fPickUpArea += effect[i];
+
+                    transform.GetChild(7).GetComponent<SphereCollider>().radius = fDefaultPickUpArea * (1 + fPickUpArea / 100);
+                    break;
+
+                case ESkillEffectType.HP:
+                    fMaxHp += effect[i];
+                    fHp += effect[i];
+
+                    float percent = fHp / fMaxHp;
+                    playerHpUIConrtol.ChangeValue(Mathf.RoundToInt(fHp), percent);
+                    break;
+
+                case ESkillEffectType.ARMOR:
+                    fDeffence += effect[i];
+                    break;
+
+                case ESkillEffectType.BLOCK:
+                    fBlockChance += effect[i];
+                    break;
+
+                case ESkillEffectType.REDUCEDAMAGE:
+                    nReduceDamage += (int)effect[i];
+                    break;
+
+                case ESkillEffectType.CRITICALCHANCE:
+                    isCriticalChance = true;
+                    break;
+
+                case ESkillEffectType.DASH:
+                    IncreaseMaxDashCount();
+                    break;
+            }
+        }
     }
 }

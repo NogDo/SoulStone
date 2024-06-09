@@ -19,8 +19,11 @@ public class CCharacterController : MonoBehaviour
 
     void Update()
     {
-        CharacterMove();
-        CharacterRotate();
+        if (Time.timeScale != 0.0f)
+        {
+            CharacterMove();
+            CharacterRotate();
+        }
     }
 
     /// <summary>

@@ -8,9 +8,27 @@ public class CEnemyRagdollControl : MonoBehaviour
     #region private º¯¼ö
     [SerializeField]
     Rigidbody hip;
+    [SerializeField]
+    GameObject[] oRagdoll;
+
+    Vector3[] ragdollPosition;
+    Quaternion[] ragdollRotation;
 
     IEnumerator ragdollPlay;
+
     #endregion
+
+    void Awake()
+    {
+        ragdollRotation = new Quaternion[oRagdoll.Length];
+        ragdollPosition = new Vector3[oRagdoll.Length];
+
+        for (int i = 0; i < oRagdoll.Length; i++)
+        {
+            ragdollPosition[i] = oRagdoll[i].transform.localPosition;
+            ragdollRotation[i] = oRagdoll[i].transform.localRotation;
+        }
+    }
 
     void OnEnable()
     {
@@ -21,6 +39,12 @@ public class CEnemyRagdollControl : MonoBehaviour
     void OnDisable()
     {
         StopCoroutine(ragdollPlay);
+
+        for (int i = 0; i < oRagdoll.Length; i++)
+        {
+            oRagdoll[i].transform.localPosition = ragdollPosition[i];
+            oRagdoll[i].transform.localRotation = ragdollRotation[i];
+        }
     }
 
     /// <summary>
@@ -29,7 +53,9 @@ public class CEnemyRagdollControl : MonoBehaviour
     /// <returns></returns>
     IEnumerator RagdollPlay()
     {
-        hip.AddForce(-transform.forward * 1000.0f);
+        float randomPower = Random.Range(750.0f, 1500.0f);
+
+        hip.AddForce(-transform.forward * randomPower);
 
         yield return new WaitForSeconds(5.0f);
 
