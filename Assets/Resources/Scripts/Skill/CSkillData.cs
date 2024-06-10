@@ -58,6 +58,7 @@ public struct STActiveSkillData
     public AnimationClip animationClip;
     public GameObject oParticle;
     public Sprite skillSprite;
+    public Sprite skillSpriteSquare;
     public string skillName;
     [TextArea(1, 10)]
     public string skillInfo;

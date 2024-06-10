@@ -2036,7 +2036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409486110923747}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 100, z: -5.7998657}
+  m_LocalPosition: {x: 0, y: 0, z: -5.7998657}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2071,7 +2071,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b090f35811d0e10479c4a5fd1f8ce0c8, type: 2}
+  - {fileID: 2100000, guid: b52c40601ee41f64c88b9f7a38d6cffb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3002,6 +3002,7 @@ MonoBehaviour:
     animationClip: {fileID: 7400000, guid: f5d70df1408c23f4ba178d97a96e0ede, type: 2}
     oParticle: {fileID: 0}
     skillSprite: {fileID: 0}
+    skillSpriteSquare: {fileID: 0}
     skillName: 
     skillInfo: 
     fAttack: 0
@@ -3010,6 +3011,7 @@ MonoBehaviour:
     animationClip: {fileID: 7400000, guid: 6ecd63359f1321f42bab6ee60a879995, type: 2}
     oParticle: {fileID: 0}
     skillSprite: {fileID: 0}
+    skillSpriteSquare: {fileID: 0}
     skillName: 
     skillInfo: 
     fAttack: 0
@@ -3018,6 +3020,7 @@ MonoBehaviour:
     animationClip: {fileID: 7400000, guid: 494a2b5b347beb94c8cc47eff2259c81, type: 2}
     oParticle: {fileID: 0}
     skillSprite: {fileID: 0}
+    skillSpriteSquare: {fileID: 0}
     skillName: 
     skillInfo: 
     fAttack: 0
@@ -3026,6 +3029,7 @@ MonoBehaviour:
     animationClip: {fileID: 7400000, guid: b44054296d55fbd4f9a46236b076e5ef, type: 2}
     oParticle: {fileID: 0}
     skillSprite: {fileID: 0}
+    skillSpriteSquare: {fileID: 0}
     skillName: 
     skillInfo: 
     fAttack: 0
@@ -3034,6 +3038,7 @@ MonoBehaviour:
     animationClip: {fileID: 7400000, guid: 03708539aa35ec042b0426f3732f543e, type: 2}
     oParticle: {fileID: 0}
     skillSprite: {fileID: 0}
+    skillSpriteSquare: {fileID: 0}
     skillName: 
     skillInfo: 
     fAttack: 0
@@ -3042,6 +3047,7 @@ MonoBehaviour:
     animationClip: {fileID: 7400000, guid: f58efb26b3a2eaa46b770060a47babfc, type: 2}
     oParticle: {fileID: 0}
     skillSprite: {fileID: 0}
+    skillSpriteSquare: {fileID: 0}
     skillName: 
     skillInfo: 
     fAttack: 0
@@ -3050,7 +3056,8 @@ MonoBehaviour:
     attackType: 000000000100000002000000
     animationClip: {fileID: 7400000, guid: 2461f55b9b800674c8204ae1cb99429e, type: 2}
     oParticle: {fileID: 7881393979009851569, guid: 54821cddb46f1c345a2d8c95e2750d2a, type: 3}
-    skillSprite: {fileID: 21300000, guid: c477d52c11d8aea4c8f461532319a647, type: 3}
+    skillSprite: {fileID: 21300000, guid: b1c5fcba24a8dc243bef8cfe4035e91a, type: 3}
+    skillSpriteSquare: {fileID: 21300000, guid: c477d52c11d8aea4c8f461532319a647, type: 3}
     skillName: "\uD6E8\uC708\uB4DC"
     skillInfo: 
     fAttack: 230

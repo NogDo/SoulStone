@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CCharacterAttack : MonoBehaviour
 {
@@ -44,6 +45,8 @@ public class CCharacterAttack : MonoBehaviour
     {
         float cooltime;
         string triggerName = "UseSkill" + (index + 1).ToString();
+        activeSkillUICoolTime[index].transform.parent.GetChild(0).GetComponent<Image>().sprite = character.Skill[index].skillSpriteSquare;
+        activeSkillUICoolTime[index].transform.parent.GetChild(0).gameObject.SetActive(true);
         character.Skill[index].oParticle.GetComponent<CParticlePlay>().Attack = character.Skill[index].fAttack;
 
         while (true)

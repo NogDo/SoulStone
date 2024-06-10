@@ -39,8 +39,8 @@ public class CCharacterBarbarian : CCharacter
         fCastFrequency = 25.0f;
         fArea = 0.0f;
         fMultiCast = 0.0f;
-        fCritical = 0.0f;
-        fCriticalDamage = 215.0f;
+        fCritical = 15.0f;
+        fCriticalDamage = 200.0f;
         fExp = 0.0f;
         fDefaultPickUpArea = 3.0f;
         fPickUpArea = 0.0f;
