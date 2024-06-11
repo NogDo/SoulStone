@@ -26,6 +26,8 @@ public class CWhirwind : CParticlePlay
 
         for (int i = 0; i < fColliderRunTime.Length; i++)
         {
+            CSoundManager.Instace.PlaySoundEffect(0, 0);
+
             particleCollider.enabled = true;
             yield return new WaitForSeconds(fColliderRunTime[i]);
             particleCollider.enabled = false;

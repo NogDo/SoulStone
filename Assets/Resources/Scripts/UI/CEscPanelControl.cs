@@ -19,6 +19,6 @@ public class CEscPanelControl : MonoBehaviour
     /// </summary>
     public void Quit()
     {
-        Application.Quit();
+        CSceneManager.Instace.PlayMainScene();
     }
 }

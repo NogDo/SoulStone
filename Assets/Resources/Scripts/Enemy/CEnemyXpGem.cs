@@ -7,13 +7,13 @@ public class CEnemyXpGem : MonoBehaviour
     #region private º¯¼ö
     CEnemyXpGemPool enemyXpGemPool;
     CCharacter character;
-    Coroutine cMagnetBezierCurve;
 
     Vector3 v3StartPosition;
     Vector3 v3MiddlePosition;
     Vector3 v3EndPosition;
 
     float fXp;
+    bool isMagnet;
     #endregion
 
     void OnEnable()
@@ -27,7 +27,7 @@ public class CEnemyXpGem : MonoBehaviour
     void OnDisable()
     {
         StopCoroutine("MagnetBezierCurve");
-        cMagnetBezierCurve = null;
+        isMagnet = false;
 
         fXp = 0.0f;
         GetComponent<Collider>().isTrigger = false;
@@ -44,8 +44,9 @@ public class CEnemyXpGem : MonoBehaviour
                 character = other.transform.parent.GetComponent<CCharacter>();
             }
 
-            if (cMagnetBezierCurve == null)
+            if (!isMagnet)
             {
+                isMagnet = true;
                 MagnetToPlayer();
             }
         }
@@ -66,6 +67,7 @@ public class CEnemyXpGem : MonoBehaviour
     {
         fXp = xp;
         transform.position = spawnPosition;
+        isMagnet = false;
 
         int nSeed = Mathf.RoundToInt((transform.position.x + transform.position.z) * Time.time);
         Random.InitState(nSeed);
@@ -94,7 +96,7 @@ public class CEnemyXpGem : MonoBehaviour
         v3MiddlePosition = new Vector3(fRandX, fRandY, fRandZ);
 
         StopCoroutine("SpawnBezierCurve");
-        cMagnetBezierCurve = StartCoroutine("MagnetBezierCurve");
+        StartCoroutine("MagnetBezierCurve");
     }
 
     /// <summary>

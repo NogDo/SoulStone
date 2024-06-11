@@ -29,6 +29,8 @@ public class CDoubleSwing : CParticlePlay
 
         for (int i = 0; i < fColliderRunTime.Length; i++)
         {
+            CSoundManager.Instace.PlaySoundEffect(1, i);
+
             transform.GetChild(i).gameObject.SetActive(true);
             particleCollider.enabled = true;
             yield return new WaitForSeconds(fColliderRunTime[i]);

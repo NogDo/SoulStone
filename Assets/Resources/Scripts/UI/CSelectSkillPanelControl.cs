@@ -67,11 +67,11 @@ public class CSelectSkillPanelControl : MonoBehaviour
         int randNum = Random.Range(1, 101);
         if (character.SkillIndex >= 6)
         {
-            randNum = 11;
+            randNum = 31;
         }
 
 
-        if (randNum >= 10)
+        if (randNum > 30)
         {
             isActiveSkillPanel = false;
             PassiveSkillPanel();

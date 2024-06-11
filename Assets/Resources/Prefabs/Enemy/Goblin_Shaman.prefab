@@ -1668,6 +1668,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f493b013ac69c4d83e4658ec2814e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materials: []
+  skinnedMeshRenderer: {fileID: 0}
 --- !u!136 &3293551397501218838
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1877,7 +1879,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 6531913137424894519, guid: b88b6374ecb6a9e48bc198b762dae426, type: 3}
+  m_Mesh: {fileID: 6531913137424894519, guid: 50c0693170293c2418ea2b8213f0ba40, type: 3}
   m_Bones:
   - {fileID: 2622493104273717442}
   - {fileID: 4873809382125585528}

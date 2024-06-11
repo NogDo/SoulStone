@@ -214,8 +214,8 @@ public abstract class CEnemy : MonoBehaviour
         do
         {
             randRotation = Random.Range(0.0f, 360.0f);
-            X = Mathf.Cos(randRotation * Mathf.Deg2Rad) * 20.0f;
-            Z = Mathf.Sin(randRotation * Mathf.Deg2Rad) * 20.0f;
+            X = Mathf.Cos(randRotation * Mathf.Deg2Rad) * 30.0f;
+            Z = Mathf.Sin(randRotation * Mathf.Deg2Rad) * 30.0f;
 
             spawnPosition = new Vector3(X, 0.0f, Z);
             spawnPosition += tfTarget.position;

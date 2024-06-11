@@ -35,6 +35,7 @@ public abstract class CCharacter : MonoBehaviour
     protected CLevelUIControl levelUIControl;
     protected CPlayerHitCanvasManager playerHitCanvasManager;
     protected GameObject oSelectSkillPanel;
+    protected GameObject oBarbarianDie;
     #endregion
 
     #region 이동 관련
@@ -97,6 +98,8 @@ public abstract class CCharacter : MonoBehaviour
         levelUIControl = FindObjectOfType<CLevelUIControl>();
         playerHitCanvasManager = FindObjectOfType<CPlayerHitCanvasManager>();
         oSelectSkillPanel = GameObject.Find("UI").transform.GetChild(5).gameObject;
+
+        oBarbarianDie = transform.GetChild(8).gameObject;
     }
 
     /// <summary>
@@ -490,12 +493,17 @@ public abstract class CCharacter : MonoBehaviour
             }
         }
 
-        playerHitCanvasManager.DisplayDamage(damage);
+        playerHitCanvasManager.DisplayDamage(Mathf.RoundToInt(damage));
 
         fHp = (fHp - damage) > 0 ? fHp - damage : 0;
 
         float percent = fHp / fMaxHp;
         playerHpUIConrtol.ChangeValue(Mathf.RoundToInt(fHp), percent);
+
+        if (fHp <= 0)
+        {
+            StartCoroutine(GameOver());
+        }
     }
 
     /// <summary>
@@ -618,5 +626,30 @@ public abstract class CCharacter : MonoBehaviour
                     break;
             }
         }
+    }
+
+    /// <summary>
+    /// 플레이어가 죽고 메인씬으로 돌아간다.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator GameOver()
+    {
+        oBarbarianDie.SetActive(true);
+        oBarbarianDie.transform.SetParent(null);
+        oBarbarianDie.transform.localPosition = transform.localPosition;
+        oBarbarianDie.transform.localRotation = transform.localRotation;
+        oBarbarianDie.GetComponentInChildren<Rigidbody>().AddForce(-oBarbarianDie.transform.forward * 1000);
+
+        GetComponent<CCharacterController>().enabled = false;
+        GetComponent<CCharacterDash>().enabled = false;
+        GetComponent<CharacterController>().enabled = false;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        yield return new WaitForSeconds(2.0f);
+
+        CSceneManager.Instace.PlayMainScene();
     }
 }

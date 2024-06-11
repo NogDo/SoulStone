@@ -64,6 +64,7 @@ public struct STActiveSkillData
     public string skillInfo;
     public float fAttack;
     public float fCoolTime;
+    public int nSkillNumber;
 }
 
 /// <summary>
