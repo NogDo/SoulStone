@@ -23,7 +23,7 @@ public class CCharacterController : MonoBehaviour
         {
             CharacterMove();
             CharacterRotate();
-        }
+        }    
     }
 
     /// <summary>
